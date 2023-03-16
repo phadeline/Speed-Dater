@@ -6,7 +6,7 @@ const bioSchema = new Schema({
       type: String,
       required: true,
       minlength: 1,
-      maxlength: 50,
+      maxlength: 20,
     },
   ],
   bio: {
@@ -19,6 +19,9 @@ const bioSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  age: { type: Number, required: true },
+  gender: { type: String, required: true },
+  location: { type: String, required: true },
 });
 
 const Bio = model("Bio", bioSchema);
