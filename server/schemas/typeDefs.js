@@ -8,8 +8,11 @@ type User {
 }
   type Bio {
     _id: ID!
-    interests: String!
+    interests: [String]!
     bio: String
+    age: Int
+    gender: String
+    location: String
   }
   type Preference {
     _id: ID!
@@ -27,11 +30,12 @@ type User {
     preference(preferenceId: ID!): Preference
   }
   type Mutation {
-    addBio(interests: String!, bio: String!): Bio
+    addBio(interests: String!, bio: String!, age: Int, gender: String, location: String): Bio
     removeBio(bioId: ID!): Bio
     updateBio(bioId: ID!, interests: String!, bio: String!): Bio
     addPreference(ageMin: Int!, ageMax: Int!, sexOrientation: String!, gender: String!, location: String!): Preference
     updatePreference(preferenceId: ID!, ageMin: Int!, ageMax: Int!, sexOrientation: String!, gender: String!, location: String!): Preference
+
   }
 `;
 
