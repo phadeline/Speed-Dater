@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Bio, Preference } = require("../models");
 const { signToken } = require("../utils/auth");
+const s3 = require("../config/s3config");
 
 const resolvers = {
   Query: {
@@ -34,7 +35,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
   },
-
+  Upload: GraphQLUpload,
   Mutation: {
     addUser: async (_parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -122,6 +123,20 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    uploadFile: async (_, { files }) => {
+      const { createReadStream, filename, mimetype, encoding } = file;
+      const { Location } = await s3
+        .upload({
+          Body: createReadStream(),
+          Key: filename,
+          ContentType: mimetype,
+        })
+        .promise();
+      return {
+        status: 200,
+        url: Location,
+      };
     },
   },
 };

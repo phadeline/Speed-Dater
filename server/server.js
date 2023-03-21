@@ -6,8 +6,6 @@ const {
 } = require("graphql-upload-minimal");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
-var bodyParser = require("body-parser");
-
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
