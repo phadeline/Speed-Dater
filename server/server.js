@@ -6,7 +6,6 @@ const {
 } = require("graphql-upload-minimal");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
-var bodyParser = require("body-parser");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -16,7 +15,7 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  //   context: authMiddleware,
+  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: false }));
