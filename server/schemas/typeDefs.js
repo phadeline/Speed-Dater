@@ -36,6 +36,7 @@ const typeDefs = gql`
     preferences: [Preference]
     preference(preferenceId: ID!): Preference
     me: User
+    users: [User]
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
@@ -59,7 +60,6 @@ const typeDefs = gql`
       sexOrientation: String!
       gender: String!
       location: String!
-      userID: ID!
     ): Preference
 
     updatePreference(
@@ -69,8 +69,9 @@ const typeDefs = gql`
       sexOrientation: String!
       gender: String!
       location: String!
-      userID: ID!
     ): Preference
+
+    
   }
 `;
 
