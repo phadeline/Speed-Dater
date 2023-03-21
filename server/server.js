@@ -1,7 +1,12 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
+const {
+  GraphQLUpload,
+  graphqlUploadExpress,
+} = require("graphql-upload-minimal");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
+var bodyParser = require("body-parser");
 
 
 const { typeDefs, resolvers } = require("./schemas");
@@ -17,7 +22,6 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
@@ -30,6 +34,7 @@ app.get("/", (req, res) => {
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
+  app.use(graphqlUploadExpress());
   server.applyMiddleware({ app });
 
   db.once("open", () => {
