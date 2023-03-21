@@ -34,7 +34,7 @@ class Auth {
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    // window.location.assign('/');
   }
 
   logout() {
@@ -44,5 +44,5 @@ class Auth {
     window.location.assign('/');
   }
 }
-
-export default Auth();
+let auth = new Auth();
+export default auth;
