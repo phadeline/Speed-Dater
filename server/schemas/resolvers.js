@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Bio, Preference } = require("../models");
-const { signToken } = require('../utils/auth');
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -14,6 +14,10 @@ const resolvers = {
 
     bios: async () => {
       return Bio.find();
+    },
+
+    users: async () => {
+      return User.find();
     },
 
     bio: async (_parent, { bioId }, context) => {
@@ -91,12 +95,15 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateBio: async (_parent, { bioId, interests, bio }, context) => {
+    updateBio: async (
+      _parent,
+      { bioId, interests, bio, age, gender, location },
+      context
+    ) => {
       if (context.user) {
         return await Bio.findOneAndUpdate(
           { _id: bioId },
-          { interests },
-          { bio },
+          { $set: { interests, bio, age, gender, location } },
           { new: true }
         );
       }
@@ -110,11 +117,7 @@ const resolvers = {
       if (context.user) {
         return await Preference.findOneAndUpdate(
           { _id: preferenceId },
-          { ageMin },
-          { ageMax },
-          { sexOrientation },
-          { gender },
-          { location },
+          { $set: { ageMin, ageMax, sexOrientation, gender, location } },
           { new: true }
         );
       }
