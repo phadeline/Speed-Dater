@@ -30,6 +30,12 @@ const typeDefs = gql`
     user: User
   }
 
+  scalar Upload
+  type File {
+    status: Int!
+    url: String!
+  }
+
   type Query {
     bios: [Bio]
     bio(bioId: ID!): Bio
@@ -39,7 +45,6 @@ const typeDefs = gql`
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-
     login(email: String!, password: String!): Auth
 
     addBio(
@@ -71,6 +76,8 @@ const typeDefs = gql`
       location: String!
       userID: ID!
     ): Preference
+
+    uploadFile(files: Upload!): File
   }
 `;
 
