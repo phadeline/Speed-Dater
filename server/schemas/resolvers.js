@@ -1,10 +1,10 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Bio, Preference } = require("../models");
-// const { signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
+    me: async (_parent, _args, context) => {
       //needs args unless you are passing an parameter as the args. Context is the third parameter
       if (context.user) {
         return User.findOne({ _id: context.user._id });
@@ -12,18 +12,18 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    bios: async (parent, args, context) => {
+    bios: async () => {
       return Bio.find();
     },
 
-    bio: async (parent, { bioId }, context) => {
+    bio: async (_parent, { bioId }, context) => {
       if (context.user) {
         return Bio.findOne({ _id: bioId });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    preference: async (parent, { preferenceId }, context) => {
+    preference: async (_parent, { preferenceId }, context) => {
       if (context.user) {
         return Preference.findOne({ _id: preferenceId });
       }
@@ -32,12 +32,12 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (_parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
+    login: async (_parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -55,15 +55,15 @@ const resolvers = {
       return { token, user };
     },
     addBio: async (
-      parent,
-      { interests, userID, bio, age, gender, location },
+      _parent,
+      { interests, bio, age, gender, location },
       context
     ) => {
       if (context.user) {
         const newBio = await Bio.create({
           interests,
           bio,
-          userID,
+          userID: context.user._id,
           age,
           gender,
           location,
@@ -74,8 +74,8 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addPreference: async (
-      parent,
-      { ageMin, ageMax, sexOrientation, gender, location, userID },
+      _parent,
+      { ageMin, ageMax, sexOrientation, gender, location },
       context
     ) => {
       if (context.user) {
@@ -85,13 +85,13 @@ const resolvers = {
           sexOrientation,
           gender,
           location,
-          userID,
+          userID: context.user._id,
         });
         return newPreference;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateBio: async (parent, { bioId, interests, bio }, context) => {
+    updateBio: async (_parent, { bioId, interests, bio }, context) => {
       if (context.user) {
         return await Bio.findOneAndUpdate(
           { _id: bioId },
@@ -103,7 +103,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     updatePreference: async (
-      parent,
+      _parent,
       { preferenceId, ageMin, ageMax, sexOrientation, gender, location },
       context
     ) => {
