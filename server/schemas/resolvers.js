@@ -2,6 +2,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Bio, Preference } = require("../models");
 const { signToken } = require("../utils/auth");
 const s3 = require("../config/s3config");
+const { GraphQLUpload } = require("graphql-upload-minimal");
 
 const resolvers = {
   Query: {
@@ -124,8 +125,8 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    uploadFile: async (_, { files }) => {
-      const { createReadStream, filename, mimetype, encoding } = file;
+    uploadFile: async (_, { file }) => {
+      const { createReadStream, filename, mimetype, encoding } = await file;
       const { Location } = await s3
         .upload({
           Body: createReadStream(),
@@ -133,8 +134,13 @@ const resolvers = {
           ContentType: mimetype,
         })
         .promise();
+      console.log(file);
+      console.log(filename);
       return {
-        status: 200,
+        // status: 200,
+        filename,
+        mimetype,
+        encoding,
         url: Location,
       };
     },
