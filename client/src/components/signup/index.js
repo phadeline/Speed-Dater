@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
 
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
-
-import Auth from '../../utils/auth';
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -54,16 +53,14 @@ const SignupForm = () => {
     }
 
     setUserFormData({
-      username: '',
-      email: '',
-      password: '',
+      username: "",
+      email: "",
+      password: "",
     });
   };
 
   return (
     <>
-
-  
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -134,7 +131,6 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
-      
     </>
   );
 };

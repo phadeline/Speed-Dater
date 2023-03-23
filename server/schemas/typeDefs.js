@@ -32,7 +32,9 @@ const typeDefs = gql`
 
   scalar Upload
   type File {
-    status: Int!
+    filename: String!
+    mimetype: String!
+    encoding: String!
     url: String!
   }
 
@@ -77,7 +79,7 @@ const typeDefs = gql`
       userID: ID!
     ): Preference
 
-    uploadFile(files: Upload!): File
+    uploadFile(file: Upload!): File
   }
 `;
 
