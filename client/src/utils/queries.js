@@ -11,7 +11,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_BIO = gql`
 query getBio{
-    myBio{
+    bio {
         _id
         bio
         interests
@@ -24,7 +24,7 @@ query getBio{
 
 export const QUERY_PREFERENCE = gql`
 query getPreference{
-    myPreference{
+    preference {
         _id
         ageMin
         ageMax

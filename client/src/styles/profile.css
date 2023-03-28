@@ -1,0 +1,56 @@
+.welcome {
+  font-size: 40px;
+  text-align: center;
+}
+
+.biopreferenceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.sectionInfo {
+  font-size: 20px;
+  /* background-color: blue; */
+  margin: 0 auto;
+}
+
+.biosection {
+  /* background-color: rgb(13, 129, 231); */
+  margin: 0px auto;
+  border-style: solid;
+}
+
+.imagepreference {
+  background-color: red;
+  margin: 0 auto;
+}
+
+.profilePicture {
+  border-radius: 20%;
+  margin: 30px auto;
+}
+
+.bioTitle {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+.preferenceTitle {
+  font-size: 40px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.section {
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  /* background-color: red; */
+  margin: 0, auto;
+  text-align: center;
+}
