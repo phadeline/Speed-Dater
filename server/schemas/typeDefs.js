@@ -13,7 +13,7 @@ const typeDefs = gql`
     age: Int
     gender: String
     location: String
-    userID: User
+    userId: User
   }
   type Preference {
     _id: ID!
@@ -22,7 +22,7 @@ const typeDefs = gql`
     sexOrientation: String!
     gender: String!
     location: String!
-    userID: User
+    userId: User
   }
 
   type Auth {
@@ -40,11 +40,12 @@ const typeDefs = gql`
 
   type Query {
     bios: [Bio]
-    bio(bioId: ID!): Bio
+    bio(userId: ID!): Bio
     preferences: [Preference]
-    preference(preferenceId: ID!): Preference
+    preference(userId: ID!): Preference
     me: User
     users: [User]
+    connectionBio(userId: ID!): Bio
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
@@ -59,7 +60,7 @@ const typeDefs = gql`
       location: String!
     ): Bio
 
-    updateBio(bioId: ID!, interests: String!, bio: String!): Bio
+    updateBio(interests: String, bio: String, location: String, age: Int, gender: String): Bio
 
     addPreference(
       ageMin: Int!
@@ -70,12 +71,11 @@ const typeDefs = gql`
     ): Preference
 
     updatePreference(
-      preferenceId: ID!
-      ageMin: Int!
-      ageMax: Int!
-      sexOrientation: String!
-      gender: String!
-      location: String!
+      ageMin: Int
+      ageMax: Int
+      sexOrientation: String
+      gender: String
+      location: String
     ): Preference
 
     uploadFile(file: Upload!): File

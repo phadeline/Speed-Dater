@@ -22,16 +22,23 @@ const resolvers = {
       return User.find();
     },
 
-    bio: async (_parent, { bioId }, context) => {
+    bio: async (_parent, context) => {
       if (context.user) {
-        return Bio.findOne({ _id: bioId });
+        return Bio.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    preference: async (_parent, { preferenceId }, context) => {
+    connectionBio: async (_parent, {userId}, context) => {
       if (context.user) {
-        return Preference.findOne({ _id: preferenceId });
+        return Bio.findOne({ userId: userId });
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    preference: async (_parent, context) => {
+      if (context.user) {
+        return Preference.findOne({ userId: context.user._id});
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -99,12 +106,12 @@ const resolvers = {
     },
     updateBio: async (
       _parent,
-      { bioId, interests, bio, age, gender, location },
+      {interests, bio, age, gender, location },
       context
     ) => {
       if (context.user) {
         return await Bio.findOneAndUpdate(
-          { _id: bioId },
+          { userId: context.user._id },
           { $set: { interests, bio, age, gender, location } },
           { new: true }
         );
@@ -113,12 +120,12 @@ const resolvers = {
     },
     updatePreference: async (
       _parent,
-      { preferenceId, ageMin, ageMax, sexOrientation, gender, location },
+      {ageMin, ageMax, sexOrientation, gender, location },
       context
     ) => {
       if (context.user) {
         return await Preference.findOneAndUpdate(
-          { _id: preferenceId },
+          { userId: context.user._id },
           { $set: { ageMin, ageMax, sexOrientation, gender, location } },
           { new: true }
         );
