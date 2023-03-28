@@ -76,7 +76,7 @@ const resolvers = {
         const newBio = await Bio.create({
           interests,
           bio,
-          userID: context.user._id,
+          userId: context.user._id,
           age,
           gender,
           location,
@@ -99,7 +99,7 @@ const resolvers = {
           sexOrientation,
           gender,
           location,
-          userID: context.user._id,
+          userId: context.user._id,
         });
         return newPreference;
       }
