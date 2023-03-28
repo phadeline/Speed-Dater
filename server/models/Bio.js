@@ -22,7 +22,7 @@ const bioSchema = new Schema({
   age: { type: Number, required: true },
   gender: { type: String, required: true },
   location: { type: String, required: true },
- 
+  pictures: [{ type: String }],
 });
 
 const Bio = model("Bio", bioSchema);
