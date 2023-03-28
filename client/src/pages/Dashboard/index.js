@@ -6,7 +6,6 @@ import '../../index.css'
 
 const Dashboard = () => {
 
-
   return (
     <container id='case'>
    <section id='profileSnip'>
