@@ -107,6 +107,7 @@ const resolvers = {
     },
     updateBio: async (
       _parent,
+
       { interests, bio, age, gender, location, pictures },
       context
     ) => {
