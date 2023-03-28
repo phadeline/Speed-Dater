@@ -29,7 +29,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    connectionBio: async (_parent, {userId}, context) => {
+    connectionBio: async (_parent, { userId }, context) => {
       if (context.user) {
         return Bio.findOne({ userId: userId });
       }
@@ -38,7 +38,7 @@ const resolvers = {
 
     preference: async (_parent, context) => {
       if (context.user) {
-        return Preference.findOne({ userId: context.user._id});
+        return Preference.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -69,7 +69,7 @@ const resolvers = {
     },
     addBio: async (
       _parent,
-      { interests, bio, age, gender, location },
+      { interests, bio, age, gender, location, pictures },
       context
     ) => {
       if (context.user) {
@@ -80,6 +80,7 @@ const resolvers = {
           age,
           gender,
           location,
+          pictures,
         });
 
         return newBio;
@@ -106,13 +107,13 @@ const resolvers = {
     },
     updateBio: async (
       _parent,
-      {interests, bio, age, gender, location },
+      { interests, bio, age, gender, location, pictures },
       context
     ) => {
       if (context.user) {
         return await Bio.findOneAndUpdate(
           { userId: context.user._id },
-          { $set: { interests, bio, age, gender, location } },
+          { $set: { interests, bio, age, gender, location, pictures } },
           { new: true }
         );
       }
@@ -120,7 +121,7 @@ const resolvers = {
     },
     updatePreference: async (
       _parent,
-      {ageMin, ageMax, sexOrientation, gender, location },
+      { ageMin, ageMax, sexOrientation, gender, location },
       context
     ) => {
       if (context.user) {
@@ -141,10 +142,11 @@ const resolvers = {
           ContentType: mimetype,
         })
         .promise();
-      console.log(file);
-      console.log(filename);
+      await Bio.findOneAndUpdate(
+        { userId: context.user._id },
+        { $push: { pictures: Location } }
+      );
       return {
-        // status: 200,
         filename,
         mimetype,
         encoding,
