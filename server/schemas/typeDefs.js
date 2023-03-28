@@ -14,6 +14,7 @@ const typeDefs = gql`
     gender: String
     location: String
     userId: User
+    pictures: [String]
   }
   type Preference {
     _id: ID!
@@ -57,9 +58,17 @@ const typeDefs = gql`
       age: Int!
       gender: String!
       location: String!
+      Pictures: String
     ): Bio
 
-    updateBio(interests: String, bio: String, location: String, age: Int, gender: String): Bio
+    updateBio(
+      interests: String
+      bio: String
+      location: String
+      age: Int
+      gender: String
+      pictures: String
+    ): Bio
 
     addPreference(
       ageMin: Int!

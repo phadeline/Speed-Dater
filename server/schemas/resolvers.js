@@ -69,17 +69,18 @@ const resolvers = {
     },
     addBio: async (
       _parent,
-      { interests, bio, age, gender, location },
+      { interests, bio, age, gender, location, pictures },
       context
     ) => {
       if (context.user) {
         const newBio = await Bio.create({
           interests,
           bio,
-          userID: context.user._id,
+          userId: context.user._id,
           age,
           gender,
           location,
+          pictures,
         });
 
         return newBio;
@@ -106,13 +107,14 @@ const resolvers = {
     },
     updateBio: async (
       _parent,
-      { interests, bio, age, gender, location },
+
+      { interests, bio, age, gender, location, pictures },
       context
     ) => {
       if (context.user) {
         return await Bio.findOneAndUpdate(
           { userId: context.user._id },
-          { $set: { interests, bio, age, gender, location } },
+          { $set: { interests, bio, age, gender, location, pictures } },
           { new: true }
         );
       }
@@ -141,10 +143,11 @@ const resolvers = {
           ContentType: mimetype,
         })
         .promise();
-      console.log(file);
-      console.log(filename);
+      await Bio.findOneAndUpdate(
+        { userId: context.user._id },
+        { $push: { pictures: Location } }
+      );
       return {
-        // status: 200,
         filename,
         mimetype,
         encoding,
