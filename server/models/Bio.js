@@ -15,7 +15,7 @@ const bioSchema = new Schema({
     minlength: 1,
     maxlength: 280,
   },
-  userID: {
+  userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
