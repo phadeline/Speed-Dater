@@ -53,7 +53,6 @@ const typeDefs = gql`
 
     addBio(
       interests: String!
-      userId: ID!
       bio: String!
       age: Int!
       gender: String!
@@ -83,3 +82,4 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+

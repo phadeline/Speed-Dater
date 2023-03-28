@@ -29,7 +29,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    connectionBio: async (_parent, {userId}, context) => {
+    connectionBio: async (_parent, { userId }, context) => {
       if (context.user) {
         return Bio.findOne({ userId: userId });
       }
@@ -38,7 +38,7 @@ const resolvers = {
 
     preference: async (_parent, context) => {
       if (context.user) {
-        return Preference.findOne({ userId: context.user._id});
+        return Preference.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -98,7 +98,7 @@ const resolvers = {
           sexOrientation,
           gender,
           location,
-          userID: context.user._id,
+          userId: context.user._id,
         });
         return newPreference;
       }
@@ -106,7 +106,7 @@ const resolvers = {
     },
     updateBio: async (
       _parent,
-      {interests, bio, age, gender, location },
+      { interests, bio, age, gender, location },
       context
     ) => {
       if (context.user) {
@@ -120,7 +120,7 @@ const resolvers = {
     },
     updatePreference: async (
       _parent,
-      {ageMin, ageMax, sexOrientation, gender, location },
+      { ageMin, ageMax, sexOrientation, gender, location },
       context
     ) => {
       if (context.user) {
