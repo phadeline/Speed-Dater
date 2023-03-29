@@ -15,9 +15,8 @@ import Dashboard from "./pages/Dashboard/index.js";
 import Chat from "./pages/Chat/index.js";
 import Profile from "./pages/ProfilePage";
 import { createUploadLink } from "apollo-upload-client";
-import InitBioPage from './pages/bioForm/index.js';
-import InitPreferencePage from './pages/PreferenceTest/index.js';
-
+import InitBioPage from "./pages/bioForm/index.js";
+import InitPreferencePage from "./pages/PreferenceTest/index.js";
 
 import { setContext } from "@apollo/client/link/context";
 
@@ -35,14 +34,13 @@ const authLink = setContext((_, { headers }) => {
 });
 
 // Construct our main GraphQL API endpoint
-const httpLink = createHttpLink({
+const httpLink = createUploadLink({
   uri: "/graphql",
 });
-const clientUri = authLink.concat(httpLink);
 
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-  link: createUploadLink({ clientUri }),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -59,41 +57,16 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/test" element={<UploadFile />} />
+            <Route path="/test1" element={<InitBioPage />} />
+            <Route path="/test2" element={<InitPreferencePage />} />
+            <Route path="/login" element={<SignupForm />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/profile" element={<Profile />} />
             <Route
-              path="/"
-              element={<LandingPage />}
-            />
-            <Route
-              path="/test"
-              element={<UploadFile />}
-            />
-             <Route
-              path="/test1"
-              element={<InitBioPage />}
-            />
-            <Route
-              path="/test2"
-              element={<InitPreferencePage />}
-            />
-            <Route
-              path="/login"
-              element={<SignupForm />}
-            />
-            <Route
-              path="/dashboard"
-              element={<Dashboard />}
-            />
-            <Route
-              path="/chat"
-              element={<Chat />}
-            />
-            <Route
-              path="/profile"
-              element={<Profile />}
-            />
-            <Route
-              path='*'
-
+              path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
