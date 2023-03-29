@@ -134,25 +134,30 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    uploadFile: async (_, { file }) => {
-      const { createReadStream, filename, mimetype, encoding } = await file;
-      const { Location } = await s3
-        .upload({
-          Body: createReadStream(),
-          Key: filename,
-          ContentType: mimetype,
-        })
-        .promise();
-      await Bio.findOneAndUpdate(
-        { userId: context.user._id },
-        { $push: { pictures: Location } }
-      );
-      return {
-        filename,
-        mimetype,
-        encoding,
-        url: Location,
-      };
+    uploadFile: async (_parent, { file }, context) => {
+      if (context.user) {
+        console.log(file);
+        const { createReadStream, filename, mimetype, encoding } = await file;
+        console.log(file);
+        const { Location } = await s3
+          .upload({
+            Body: createReadStream(),
+            Key: filename,
+            ContentType: mimetype,
+          })
+          .promise();
+        await Bio.findOneAndUpdate(
+          { userId: context.user._id },
+          { $push: { pictures: Location } }
+        );
+        console.log(Location);
+        return {
+          filename,
+          mimetype,
+          encoding,
+          url: Location,
+        };
+      }
     },
   },
 };
