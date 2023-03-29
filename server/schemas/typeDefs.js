@@ -58,7 +58,7 @@ const typeDefs = gql`
       age: Int!
       gender: String!
       location: String!
-      Pictures: String
+      pictures: String
     ): Bio
 
     updateBio(

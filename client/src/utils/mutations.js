@@ -12,6 +12,34 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_BIO = gql`
+  mutation addBio($interests: String!, $bio: String!, $age: Int!, $gender: String!, $location: String!, $pictures: String) {
+    addBio(interests: $interests, bio: $bio, age: $age, gender: $gender, location: $location, pictures: $pictures ) {
+      interests
+      bio
+      age
+      gender
+      location
+      pictures
+    }
+  }
+  `;
+
+
+  export const ADD_PREFERENCE = gql`
+  mutation addPreference($ageMin: Int!, $ageMax: Int!, $sexOrientation: String!, $gender: String!, $location: String!) {
+    addPreference(ageMin: $ageMin, ageMax: $ageMax, sexOrientation: $sexOrientation, gender: $gender, location: $location ) {
+      ageMin
+      ageMax
+      sexOrientation
+      gender
+      location
+    }
+  }
+  `;
+
+
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
