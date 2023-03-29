@@ -13,6 +13,9 @@ import SignupForm from './pages/SignupPage';
 import Dashboard from './pages/Dashboard/index.js';
 import Chat from './pages/Chat/index.js';
 import Profile from './pages/ProfilePage';
+import InitBioPage from './pages/bioForm/index.js';
+import InitPreferencePage from './pages/PreferenceTest/index.js';
+
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -61,6 +64,14 @@ function App() {
             <Route
               path="/test"
               element={<UploadFile />}
+            />
+             <Route
+              path="/test1"
+              element={<InitBioPage />}
+            />
+            <Route
+              path="/test2"
+              element={<InitPreferencePage />}
             />
             <Route
               path="/login"
