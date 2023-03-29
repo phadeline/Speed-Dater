@@ -8,8 +8,8 @@ const Chat = () => {
   const handleNextChat = async () => {};
   return (
     <div className="chatPage">
-      <PartnerInfo />
-      <Chat />
+      {/* <PartnerInfo />
+      <Chat /> */}
       <div className="actions">
         <button className="btn connectBtn">Connect</button>
         <button className="btn endBtn">End Chat</button>
