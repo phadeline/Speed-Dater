@@ -15,7 +15,14 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-
+    connection: async (_parent, { userId }, context) => {
+      if (context.user) {
+        return User.findOne({ _id: userId });
+      }
+      throw new AuthenticationError(
+        "You need to be logged in to view another profile!"
+      );
+    },
     bios: async () => {
       return Bio.find();
     },
@@ -41,6 +48,13 @@ const resolvers = {
     preference: async (_parent, args, context) => {
       if (context.user) {
         return await Preference.findOne({ userId: context.user._id });
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    connectionPreference: async (_parent, { userId }, context) => {
+      if (context.user) {
+        return await Preference.findOne({ userId: userId });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
