@@ -19,7 +19,7 @@ import { createUploadLink } from "apollo-upload-client";
 import InitBioPage from "./pages/bioForm/index.js";
 import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
-import Nav from "./components/Nav";
+
 
 import { setContext } from "@apollo/client/link/context";
 
