@@ -22,9 +22,9 @@ const resolvers = {
       return User.find();
     },
 
-    bio: async (_parent, context) => {
+    bio: async (_parent, args, context) => {
       if (context.user) {
-        return Bio.findOne({ userId: context.user._id });
+        return await Bio.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -36,9 +36,9 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    preference: async (_parent, context) => {
+    preference: async (_parent, args, context) => {
       if (context.user) {
-        return Preference.findOne({ userId: context.user._id });
+        return await Preference.findOne({ userId: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -148,7 +148,8 @@ const resolvers = {
           .promise();
         await Bio.findOneAndUpdate(
           { userId: context.user._id },
-          { $push: { pictures: Location } }
+          { $push: { pictures: Location } },
+          { new: true }
         );
         console.log(Location);
         return {

@@ -13,7 +13,7 @@ const typeDefs = gql`
     age: Int
     gender: String
     location: String
-    userId: User
+    userId: ID!
     pictures: [String]
   }
   type Preference {
@@ -23,7 +23,7 @@ const typeDefs = gql`
     sexOrientation: String!
     gender: String!
     location: String!
-    userId: User
+    userId: ID!
   }
 
   type Auth {
@@ -41,9 +41,9 @@ const typeDefs = gql`
 
   type Query {
     bios: [Bio]
-    bio(userId: ID!): Bio
+    bio: Bio
     preferences: [Preference]
-    preference(userId: ID!): Preference
+    preference: Preference
     me: User
     users: [User]
     connectionBio(userId: ID!): Bio
