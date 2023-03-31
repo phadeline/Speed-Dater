@@ -9,7 +9,9 @@ const resolvers = {
     me: async (_parent, _args, context) => {
       //needs args unless you are passing an parameter as the args. Context is the third parameter
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id })
+          .populate("connections")
+          .populate("connectRequest");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -104,6 +106,81 @@ const resolvers = {
         return newPreference;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    addConnection: async (_parent, { userId }, context) => {
+      if (context.user) {
+        const addConnection = await User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $push: { connectRequest: context.user._id },
+          }
+        );
+        return addConnection;
+      }
+      throw new AuthenticationError(
+        "You need to be logged in to add a connection"
+      );
+    },
+    acceptConnection: async (_parent, { userId }, context) => {
+      if (context.user) {
+        const newConnect = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { connections: userId } }
+        );
+        const newConnect2 = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { connections: context.userId } }
+        );
+        const deleteRequest = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { connectRequest: userId } }
+        );
+        return {
+          newConnect,
+          newConnect2,
+          deleteRequest,
+        };
+      }
+      throw new AuthenticationError(
+        "You need to be logged in to edit connections"
+      );
+    },
+    deleteConnectionRequest: async (_parent, { userId }, context) => {
+      if (context.user) {
+        const deleteConnectionRequest = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: { connectRequest: userId },
+          }
+        );
+        return deleteConnectionRequest;
+      }
+      throw new AuthenticationError(
+        "You need to be logged in to edit connections"
+      );
+    },
+    deleteConnection: async (_parent, { userId }, context) => {
+      if (context.user) {
+        const delConnection1 = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: { connections: userId },
+          }
+        );
+        const delConnection2 = await User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $pull: { connections: context.user._id },
+          }
+        );
+        return {
+          delConnection1,
+          delConnection2,
+        };
+      }
+      throw new AuthenticationError(
+        "You need to be logged in to edit connections"
+      );
     },
     updateBio: async (
       _parent,
