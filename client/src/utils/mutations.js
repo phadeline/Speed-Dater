@@ -87,7 +87,7 @@ export const UPLOAD_FILE = gql`
 `;
 
 export const ADD_CONNECTION = gql`
-  mutation addConnection($userId: ID!) {
+  mutation addConnection ($userId: ID!) {
     addConnection(userId: $userId) {
       connectRequest {
         _id
