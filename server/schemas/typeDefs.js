@@ -47,8 +47,10 @@ const typeDefs = gql`
     preferences: [Preference]
     preference: Preference
     me: User
+    connection(userId: ID!): User
     users: [User]
     connectionBio(userId: ID!): Bio
+    connectionPreference(userId: ID!): Preference
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

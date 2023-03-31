@@ -39,3 +39,39 @@ export const QUERY_PREFERENCE = gql`
     }
   }
 `;
+
+export const CONNECTION_PREFERENCE = gql`
+  query getConnectionPref($userId: ID!) {
+    connectionPreference(userId: $userId) {
+      ageMin
+      ageMax
+      sexOrientation
+      gender
+      location
+      userId
+    }
+  }
+`;
+
+export const CONNECTION_BIO = gql`
+  query getConnectionBio($userId: ID!) {
+    connectionBio(userId: $userId) {
+      interests
+      bio
+      age
+      gender
+      location
+      userId
+      pictures
+    }
+  }
+`;
+
+export const QUERY_CONNECTION = gql`
+  query getConnection($userId: ID!) {
+    connection(userId: $userId) {
+      _id
+      username
+    }
+  }
+`;

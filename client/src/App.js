@@ -56,7 +56,7 @@ function App() {
             <Route path="/login" element={<SignupForm />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/test" element={<UploadFile />} />
             <Route path="/test1" element={<InitBioPage />} />
