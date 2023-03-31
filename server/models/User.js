@@ -18,6 +18,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    connections: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    connectRequest: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   // set this to use virtual below
   {

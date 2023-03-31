@@ -5,6 +5,8 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String
+    connections: [User]
+    connectRequest: [User]
   }
   type Bio {
     _id: ID!
@@ -51,6 +53,10 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addConnection(userId: ID!): User
+    acceptConnection(userId: ID!): User
+    deleteConnectionRequest(userId: ID!): User
+    deleteConnection(userId: ID!): User
 
     addBio(
       interests: String!
