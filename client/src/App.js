@@ -10,7 +10,7 @@ import LandingPage from "./pages/LandingPage";
 // import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav"
+// import Nav from "./components/Nav"
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
 import Chat from "./pages/Chat/index.js";
@@ -58,7 +58,7 @@ function App() {
             <Route path="/login" element={<SignupForm />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/test" element={<UploadFile />} />
             <Route path="/test1" element={<InitBioPage />} />

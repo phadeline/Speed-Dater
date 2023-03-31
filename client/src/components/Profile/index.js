@@ -15,11 +15,11 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
       <div className="biopreferenceContainer">
         <div className="imagepreference col-lg-3 col-md-4 col-sm-12">
           {/* <div className="imagecontainer"> */}
-          <img
+          {/* <img
             className="profilePicture col-lg-12 col-md-12 col-sm-12"
-            src={myBio.pictures[1]}
+            src={myBio.pictures[0]}
             alt="woman"
-          ></img>
+          ></img> */}
           {/* </div> */}
           <div className="preferences">
             <h2 className="preferenceTitle">Your Preferences</h2>

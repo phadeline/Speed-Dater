@@ -89,21 +89,23 @@ export const UPLOAD_FILE = gql`
 export const ADD_CONNECTION = gql`
   mutation addConnection ($userId: ID!) {
     addConnection(userId: $userId) {
-      user{
+      user {
         connectRequest
       }
     }
-  }`;
+  }
+`;
 
 export const ACCEPT_CONNECTION = gql`
   mutation acceptConnection($userId: ID!) {
     acceptConnection(userId: $userId) {
-      user{
+      user {
         connectRequest
         connections
       }
     }
-  }`;
+  }
+`;
 
 export const DELETE_REQUEST = gql`
   mutation deleteConnectionRequest($userId: ID!) {
