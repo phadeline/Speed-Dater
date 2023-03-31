@@ -1,55 +1,32 @@
-import React from 'react';
-import '../../index.css'
+import React from "react";
+import { useQuery } from "@apollo/client";
+import DashboardComponent from "../../components/Dashboard";
 
+import { QUERY_USER } from "../../utils/queries";
+import { QUERY_BIO } from "../../utils/queries";
+import { QUERY_PREFERENCE } from "../../utils/queries";
 
+const Dashboard= () => {
+  const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
+  const { loading: userLoading, data: userData } = useQuery(QUERY_USER);
+  const { loading: preferenceLoading, data: preferenceData } =
+    useQuery(QUERY_PREFERENCE);
 
+  const myBio = bioData?.bio || {};
+  const myUser = userData?.me || {};
+  const myPreference = preferenceData?.preference || {};
 
-const Dashboard = () => {
-
+  if (bioLoading || preferenceLoading || userLoading) {
+    return <div> Loading...</div>;
+  }
   return (
-    <container id='case'>
-   <section id='profileSnip'>
     <div>
-    <h3 id='dashUsername'> Username</h3> 
-    </div>
-    <div id='usersPicture'></div>
-    <p id='dashGender' class='dashDetails'>gender <span id='dashAge'>, 28 </span></p>
-    <p id='dashOrientation' class='dashDetails'>straight</p>
-    <p id='dashLocation' class='dashDetails'>Belivdere, NJ</p>
-    
-    </section>
-    <section id='bioSnip' >
+      <h1> Your Dashboard page</h1>
       <div>
-      <h3>Bio Section</h3>
+        <DashboardComponent myBio={myBio} myUser={myUser} myPreference={myPreference} />
       </div>
-      <div id='dashbioContent'>
-        <p id='dashBioSummary'>This is my SpeedDater app summary area where I describe myself 
-        to potential matches that I might meet! This is some more filler to add to the Bio to fill 
-        out the div and test how the page will look!</p>
-        <h4>Interests:</h4>
-        <p id='dashInterests'><ul>
-          <li>Skiing</li>
-          <li>Cooking</li>
-            <li>Traveling</li></ul></p>
-      </div>
-
-      </section>
-      <section id='connectionList'>
-        <div>
-        <h3> Your Matches</h3>
-        </div>
-        <div id='dashFriends'>
-          <p class='eachfriend'>friend one</p>
-          <p class='eachfriend'>friend one</p>
-          <p class='eachfriend'>friend one</p>
-          <p class='eachfriend'>friend one</p>
-          <p class='eachfriend'>friend one</p>
-        </div>
-        
-      </section>
-
-   </container>
-  )
-}; 
+    </div>
+  );
+};
 
 export default Dashboard;
