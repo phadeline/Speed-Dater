@@ -98,3 +98,9 @@ code {
   justify-content: center;
   margin-left: 20px;
 }
+
+.sliderimg {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}

@@ -127,7 +127,8 @@ const resolvers = {
           { _id: userId },
           {
             $push: { connectRequest: context.user._id },
-          }
+          },
+          { new: true }
         );
         return addConnection;
       }
@@ -139,15 +140,18 @@ const resolvers = {
       if (context.user) {
         const newConnect = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { connections: userId } }
+          { $push: { connections: userId } },
+          { new: true }
         );
         const newConnect2 = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { connections: context.userId } }
+          { $push: { connections: context.userId } },
+          { new: true }
         );
         const deleteRequest = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { connectRequest: userId } }
+          { $pull: { connectRequest: userId } },
+          { new: true }
         );
         return {
           newConnect,
@@ -165,7 +169,8 @@ const resolvers = {
           { _id: context.user._id },
           {
             $pull: { connectRequest: userId },
-          }
+          },
+          { new: true }
         );
         return deleteConnectionRequest;
       }
@@ -179,13 +184,15 @@ const resolvers = {
           { _id: context.user._id },
           {
             $pull: { connections: userId },
-          }
+          },
+          { new: true }
         );
         const delConnection2 = await User.findOneAndUpdate(
           { _id: userId },
           {
             $pull: { connections: context.user._id },
-          }
+          },
+          { new: true }
         );
         return {
           delConnection1,

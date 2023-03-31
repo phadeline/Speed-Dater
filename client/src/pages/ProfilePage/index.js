@@ -11,7 +11,6 @@ import {
 
 const Profile = () => {
   const userId = useParams().id;
-  console.log(userId);
   const { loading: bioLoading, data: bioData } = useQuery(CONNECTION_BIO, {
     variables: { userId },
   });
@@ -24,6 +23,7 @@ const Profile = () => {
       variables: { userId },
     }
   );
+
   const myBio = bioData?.connectionBio || {};
   const myUser = userData?.connection || {};
   const myPreference = preferenceData?.connectionPreference || {};

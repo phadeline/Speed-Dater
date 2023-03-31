@@ -12,8 +12,7 @@ const ConnectionButtons = async ({ userId }) => {
   const { acceptConnection, error: acceptError } =
     useMutation(ACCEPT_CONNECTION);
   const { deleteRequest, error: delReqError } = useMutation(DELETE_REQUEST);
-  const { deleteConnection, error: delConnection } =
-    useMutation(DELETE_CONNECTION);
+  const [deleteConnection] = useMutation(DELETE_CONNECTION);
 
   const addConHandler = async () => {
     await addConnection(userId);
@@ -24,8 +23,13 @@ const ConnectionButtons = async ({ userId }) => {
   const delReqHandler = async () => {
     await deleteRequest(userId);
   };
-  const delConHandler = async () => {
-    await deleteConnection(userId);
+
+  const deleteConHandler = async () => {
+    try {
+      const { data } = deleteConnection({ variables: { userId: userId } });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
