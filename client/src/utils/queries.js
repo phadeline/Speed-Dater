@@ -10,27 +10,30 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_BIO = gql`
-query getBio{
+  query getBio {
     bio {
-        _id
-        bio
-        interests
-        userId
-        age
-        gender
-        location
+      _id
+      bio
+      interests
+      userId
+      age
+      gender
+      location
+      pictures
     }
-}`
+  }
+`;
 
 export const QUERY_PREFERENCE = gql`
-query getPreference{
+  query getPreference {
     preference {
-        _id
-        ageMin
-        ageMax
-        sexOrientation
-        gender
-        location
-        userId
+      _id
+      ageMin
+      ageMax
+      sexOrientation
+      gender
+      location
+      userId
     }
-}`
+  }
+`;
