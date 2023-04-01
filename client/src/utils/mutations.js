@@ -99,6 +99,7 @@ export const ADD_CONNECTION = gql`
 export const ACCEPT_CONNECTION = gql`
   mutation acceptConnection($userId: ID!) {
     acceptConnection(userId: $userId) {
+
       connectRequest {
         _id
       }

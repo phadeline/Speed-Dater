@@ -141,4 +141,6 @@ code {
   display: flex;
   flex-direction: column;
   width: 17vw;
+  height: 30vh;
+  object-fit: cover;
 }
