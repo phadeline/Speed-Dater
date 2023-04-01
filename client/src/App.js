@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import UploadFile from "./components/inputTest/index.js";
 import LandingPage from "./pages/LandingPage";
 // import './App.css';
@@ -51,7 +46,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/test" element={<UploadFile />} />

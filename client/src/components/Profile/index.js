@@ -4,8 +4,7 @@ import "../../styles/profile.css";
 import { useMutation } from "@apollo/client";
 import { ADD_CONNECTION } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
+import { Carousel } from "react-bootstrap";
 
 const MyProfile = ({ myUser, myBio, myPreference }) => {
   // if (!myUser.length) {
@@ -31,19 +30,21 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
       <div className="biopreferenceContainer">
         <div className="imagepreference col-lg-3 col-md-4 col-sm-12">
           <div className="imagecontainer">
-            <AliceCarousel>
+            <Carousel interval={null}>
               {myBio.pictures
-                ? myBio.pictures.map((picture) => {
+                ? myBio.pictures.map((picture, index) => {
                     return (
-                      <img
-                        className="profilePicture col-lg-12 col-md-12 col-sm-12 sliderimg"
-                        src={picture}
-                        key={picture}
-                      ></img>
+                      <Carousel.Item key={index}>
+                        <img
+                          className="sliderimgDash"
+                          src={picture}
+                          key={picture}
+                        ></img>
+                      </Carousel.Item>
                     );
                   })
                 : null}
-            </AliceCarousel>
+            </Carousel>
           </div>
           <div className="preferences">
             <h2 className="preferenceTitle">Their Preferences</h2>
@@ -55,7 +56,7 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
           </div>
         </div>
         <div className="biosection col-lg-8 col-md-8 col-sm-12">
-          <h2 className="bioTitle"> Their Bio</h2>
+          <h2 className="bioTitle"> {myUser.username}'s Bio</h2>
           <div className="section col-md-12 col-sm-12">
             <h3 className="col-lg-3 col-md-12 col-sm-12 sectionTitle">
               Summary:
