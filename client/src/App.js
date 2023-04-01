@@ -15,7 +15,6 @@ import InitBioPage from "./pages/bioForm/index.js";
 import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
 
-
 import { setContext } from "@apollo/client/link/context";
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -54,7 +53,6 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/test" element={<UploadFile />} />
             <Route path="/test1" element={<InitBioPage />} />
             <Route path="/test2" element={<InitPreferencePage />} />
             <Route path="/profile" element={<Profile />} />

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import "../../styles/bioform.css";
+import UploadFile from "../inputTest";
 
 import { useMutation } from "@apollo/client";
 import { ADD_BIO } from "../../utils/mutations";
@@ -68,12 +70,19 @@ const InitBioForm = () => {
       location: "",
       pictures: "",
     });
+
+    window.location.assign("/test2");
   };
 
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleFormSubmit}
+        className="col-lg-6 col-md-6 col-sm-12 bioForm"
+      >
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -81,11 +90,30 @@ const InitBioForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          Something went wrong with your Form!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor="interests">interests</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="bio">
+            Your Bio
+          </Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={4}
+            placeholder="What do you others to know about you?"
+            name="bio"
+            onChange={handleInputChange}
+            value={userFormData.bio}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Bio is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="bioGroup">
+          <Form.Label htmlFor="interests" className="bioText">
+            Your Interests
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your interests"
@@ -99,23 +127,10 @@ const InitBioForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="bio">bio</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your bio here"
-            name="bio"
-            onChange={handleInputChange}
-            value={userFormData.bio}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Email is required!
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label htmlFor="age">age</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label htmlFor="age" className="bioText">
+            Your Age
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your age"
@@ -129,8 +144,10 @@ const InitBioForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="gender">gender</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label htmlFor="gender" className="bioText">
+            Your Gender
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your gender"
@@ -144,11 +161,13 @@ const InitBioForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="location">location</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label htmlFor="location" className="bioText">
+            Your Location
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your city"
+            placeholder="Your State"
             name="location"
             onChange={handleInputChange}
             value={userFormData.location}
@@ -158,21 +177,10 @@ const InitBioForm = () => {
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
-
-        {/* <Form.Group>
-          <Form.Label htmlFor="pictures">Password</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your password"
-            name="pictures"
-            onChange={handleInputChange}
-            value={userFormData.pictures}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group> */}
+        <div className="text-center uploadContainer">
+          <h3 className="upload">Upload Your Profile Photo</h3>
+          <UploadFile />
+        </div>
 
         <Button
           disabled={
@@ -185,7 +193,7 @@ const InitBioForm = () => {
             )
           }
           type="submit"
-          variant="success"
+          className="bioSubmit"
         >
           Submit
         </Button>
