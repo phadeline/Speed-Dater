@@ -5,9 +5,9 @@ import UploadFile from "../../components/inputTest";
 const InitBioPage = () => {
   return (
     <div>
-      <h1> Create your Bio</h1>
+      <h1 className="text-center"> Create your Bio</h1>
       <InitBioForm />
-      <UploadFile />
+      {/* <UploadFile /> */}
     </div>
   );
 };

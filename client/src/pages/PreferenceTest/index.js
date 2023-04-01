@@ -10,7 +10,7 @@ const InitPreferencePage = () => {
 
   return (
     <div>
-          <h1> Create your Bio</h1>
+          <h1 className='text-center'> Add Your Preferences</h1>
        
        <InitPreferenceForm />
     </div>

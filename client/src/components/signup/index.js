@@ -58,6 +58,7 @@ const SignupForm = () => {
       email: "",
       password: "",
     });
+    window.location.assign('/test1');
   };
 
   return (
