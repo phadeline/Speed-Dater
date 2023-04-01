@@ -23,7 +23,7 @@ const Dashboard = () => {
   return (
     <div>
       <Nav />
-      <div>
+      <div className="dashpage">
         <h1> Your Dashboard page</h1>
         <div>
           <DashboardComponent

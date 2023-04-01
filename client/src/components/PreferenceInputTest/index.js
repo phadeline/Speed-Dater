@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import "../../styles/preferenceForm.css";
 
 import { useMutation } from "@apollo/client";
 import { ADD_PREFERENCE } from "../../utils/mutations";
@@ -8,13 +9,11 @@ import { ADD_PREFERENCE } from "../../utils/mutations";
 const InitPreferenceForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    
     ageMin: "",
-      ageMax: "",
-      sexOrientation: "",
-      gender: "",
-      location: ""
-     
+    ageMax: "",
+    sexOrientation: "",
+    gender: "",
+    location: "",
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -48,36 +47,39 @@ const InitPreferenceForm = () => {
 
     try {
       const { data } = await addPreference({
-          variables: {
-            ageMin: parseInt(userFormData.ageMin),
-            ageMax: parseInt(userFormData.ageMax),
-            sexOrientation: userFormData.sexOrientation,
-            gender: userFormData.gender,
-            location: userFormData.location,
-            
-          }
-        
+        variables: {
+          ageMin: parseInt(userFormData.ageMin),
+          ageMax: parseInt(userFormData.ageMax),
+          sexOrientation: userFormData.sexOrientation,
+          gender: userFormData.gender,
+          location: userFormData.location,
+        },
       });
       console.log(data);
-    //   Auth.login(data.addUser.token);
+      //   Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
 
     setUserFormData({
-        ageMin: "",
-        ageMax: "",
-        sexOrientation: "",
-        gender: "",
-        location: "",
-        
+      ageMin: "",
+      ageMax: "",
+      sexOrientation: "",
+      gender: "",
+      location: "",
     });
+    window.location.assign("/dashboard");
   };
 
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handlePreferenceForm}>
+      <Form
+        className="col-lg-6 col-md-6 col-sm-12 preferenceForm"
+        noValidate
+        validated={validated}
+        onSubmit={handlePreferenceForm}
+      >
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -88,11 +90,13 @@ const InitPreferenceForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor="ageMin">age min</Form.Label>
+        <Form.Group className="preferenceGroup ">
+          <Form.Label className="preferenceText" htmlFor="ageMin">
+            Minimum Age
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="preferred min age"
+            placeholder="preferred minimum age"
             name="ageMin"
             onChange={handleInputChange}
             value={userFormData.ageMin}
@@ -103,8 +107,10 @@ const InitPreferenceForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="ageMax">Max age</Form.Label>
+        <Form.Group className="preferenceGroup ">
+          <Form.Label htmlFor="ageMax" className="preferenceText">
+            Maximum age
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="preferred maximum age"
@@ -118,8 +124,10 @@ const InitPreferenceForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="sexOrientation">sexual orientation</Form.Label>
+        <Form.Group className="preferenceGroup ">
+          <Form.Label htmlFor="sexOrientation" className="preferenceText">
+            Sexual Orientation
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your sexual orientation"
@@ -133,8 +141,11 @@ const InitPreferenceForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="gender"> preferred gender</Form.Label>
+        <Form.Group className="preferenceGroup ">
+          <Form.Label htmlFor="gender" className="preferenceText">
+            {" "}
+            Preferred Gender
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your preferred gender"
@@ -148,11 +159,13 @@ const InitPreferenceForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="location">location</Form.Label>
+        <Form.Group className="preferenceGroup ">
+          <Form.Label htmlFor="location" className="preferenceText">
+            Location
+          </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your city"
+            placeholder="Preferred State"
             name="location"
             onChange={handleInputChange}
             value={userFormData.location}
@@ -163,9 +176,6 @@ const InitPreferenceForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        
-
-
         <Button
           disabled={
             !(
@@ -173,16 +183,12 @@ const InitPreferenceForm = () => {
               userFormData.ageMax &&
               userFormData.sexOrientation &&
               userFormData.gender &&
-              userFormData.location 
-
-
-      
-
-
+              userFormData.location
             )
           }
           type="submit"
           variant="success"
+          className="preferenceSubmit"
         >
           Submit
         </Button>
