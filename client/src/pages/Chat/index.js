@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "../../components/Nav";
 
 const Chat = () => {
   const handleConnectBtn = async () => {};
@@ -7,13 +8,16 @@ const Chat = () => {
 
   const handleNextChat = async () => {};
   return (
-    <div className="chatPage">
-      {/* <PartnerInfo />
-      <Chat /> */}
-      <div className="actions">
-        <button className="btn connectBtn">Connect</button>
-        <button className="btn endBtn">End Chat</button>
-        <button className="btn nextChatBtn">New Chat</button>
+    <div>
+      <Nav></Nav>
+      <div className="chatPage">
+        {/* <PartnerInfo />
+    <Chat /> */}
+        <div className="actions">
+          <button className="btn connectBtn">Connect</button>
+          <button className="btn endBtn">End Chat</button>
+          <button className="btn nextChatBtn">New Chat</button>
+        </div>
       </div>
     </div>
   );
