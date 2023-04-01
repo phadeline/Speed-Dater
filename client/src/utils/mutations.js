@@ -75,6 +75,7 @@ export const LOGIN_USER = gql`
   }
 `;
 
+
 export const UPLOAD_FILE = gql`
   mutation uploadFile($file: Upload!) {
     uploadFile(file: $file) {

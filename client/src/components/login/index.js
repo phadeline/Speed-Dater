@@ -3,6 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
+import "../../styles/signupLogin.css"
 
 import Auth from '../../utils/auth';
 
@@ -54,8 +55,8 @@ const LoginForm = () => {
   };
 
   return (
-    <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+    <div className="login">
+      <Form noValidate validated={validated} className="loginForm" onSubmit={handleFormSubmit}>
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -64,11 +65,13 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
+        <h2 className="text-center">Login!</h2>
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label className="formText" htmlFor="email">Email</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
+            className="input"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
@@ -80,10 +83,11 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label htmlFor="password" className="formText">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
+            className="input"
             name="password"
             onChange={handleInputChange}
             value={userFormData.password}
@@ -96,12 +100,13 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
+          className="loginSubmit"
           variant="success"
         >
           Submit
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 

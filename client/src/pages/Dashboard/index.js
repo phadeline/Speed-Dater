@@ -1,12 +1,13 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import DashboardComponent from "../../components/Dashboard";
+import Nav from "../../components/Nav";
 
 import { QUERY_USER } from "../../utils/queries";
 import { QUERY_BIO } from "../../utils/queries";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 
-const Dashboard= () => {
+const Dashboard = () => {
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
   const { loading: userLoading, data: userData } = useQuery(QUERY_USER);
   const { loading: preferenceLoading, data: preferenceData } =
@@ -21,9 +22,16 @@ const Dashboard= () => {
   }
   return (
     <div>
-      <h1> Your Dashboard page</h1>
+      <Nav />
       <div>
-        <DashboardComponent myBio={myBio} myUser={myUser} myPreference={myPreference} />
+        <h1> Your Dashboard page</h1>
+        <div>
+          <DashboardComponent
+            myBio={myBio}
+            myUser={myUser}
+            myPreference={myPreference}
+          />
+        </div>
       </div>
     </div>
   );

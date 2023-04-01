@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import MyProfile from "../../components/Profile";
 import { useParams } from "react-router-dom";
+import Nav from "../../components/Nav";
 
 import {
   CONNECTION_BIO,
@@ -33,13 +34,20 @@ const Profile = () => {
   }
   return (
     <div>
-      <h1> Your Profile page</h1>
+      <Nav></Nav>
       <div>
-        {/* {userLoading || bioLoading || preferenceLoading ? (
+        <h1> Your Profile page</h1>
+        <div>
+          {/* {userLoading || bioLoading || preferenceLoading ? (
           <div> Loading...</div>
         ) : ( */}
-        <MyProfile myBio={myBio} myUser={myUser} myPreference={myPreference} />
-        {/* )} */}
+          <MyProfile
+            myBio={myBio}
+            myUser={myUser}
+            myPreference={myPreference}
+          />
+          {/* )} */}
+        </div>
       </div>
     </div>
   );

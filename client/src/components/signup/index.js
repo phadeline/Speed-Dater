@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import "../../styles/signupLogin.css";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
@@ -60,9 +61,14 @@ const SignupForm = () => {
   };
 
   return (
-    <>
+    <div className="signup">
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form
+        className="signupForm"
+        noValidate
+        validated={validated}
+        onSubmit={handleFormSubmit}
+      >
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -72,11 +78,14 @@ const SignupForm = () => {
         >
           Something went wrong with your signup!
         </Alert>
-
+        <h2 className="text-center">New User? Sign Up!</h2>
         <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Label htmlFor="username" className="formText">
+            Username
+          </Form.Label>
           <Form.Control
             type="text"
+            className="input"
             placeholder="Your username"
             name="username"
             onChange={handleInputChange}
@@ -89,10 +98,11 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Label htmlFor="email" className="formText">Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
+            className="input"
             name="email"
             onChange={handleInputChange}
             value={userFormData.email}
@@ -104,11 +114,12 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label htmlFor="password" className="formText">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
             name="password"
+            className="input"
             onChange={handleInputChange}
             value={userFormData.password}
             required
@@ -127,11 +138,12 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
+          className="signupSubmit"
         >
           Submit
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 
