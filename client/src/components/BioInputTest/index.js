@@ -8,14 +8,11 @@ import { ADD_BIO } from "../../utils/mutations";
 const InitBioForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    
     interests: "",
-      bio: "",
-      age: "",
-      gender: "",
-      location: "",
-      pictures
-      : "",
+    bio: "",
+    age: "",
+    gender: "",
+    location: "",
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -49,30 +46,27 @@ const InitBioForm = () => {
 
     try {
       const { data } = await addBio({
-          variables: {
-            interests: userFormData.interests,
-            bio: userFormData.bio,
-            age: parseInt(userFormData.age),
-            gender: userFormData.gender,
-            location: userFormData.location,
-            pictures: userFormData.pictures,
-          }
-        
+        variables: {
+          interests: userFormData.interests,
+          bio: userFormData.bio,
+          age: parseInt(userFormData.age),
+          gender: userFormData.gender,
+          location: userFormData.location,
+        },
       });
       console.log(data);
-    //   Auth.login(data.addUser.token);
+      //   Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
 
     setUserFormData({
-        interests: "",
-        bio: "",
-        age: "",
-        gender: "",
-        location: "",
-        pictures
-        : "",
+      interests: "",
+      bio: "",
+      age: "",
+      gender: "",
+      location: "",
+      pictures: "",
     });
   };
 
@@ -165,7 +159,7 @@ const InitBioForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor="pictures">Password</Form.Label>
           <Form.Control
             type="text"
@@ -178,8 +172,7 @@ const InitBioForm = () => {
           <Form.Control.Feedback type="invalid">
             Password is required!
           </Form.Control.Feedback>
-        </Form.Group>
-
+        </Form.Group> */}
 
         <Button
           disabled={
@@ -188,10 +181,7 @@ const InitBioForm = () => {
               userFormData.bio &&
               userFormData.age &&
               userFormData.gender &&
-              userFormData.location &&
-              userFormData.pictures
-
-
+              userFormData.location
             )
           }
           type="submit"

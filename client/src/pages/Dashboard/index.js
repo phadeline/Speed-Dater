@@ -21,9 +21,10 @@ const Dashboard = () => {
     return <div> Loading...</div>;
   }
   return (
+
     <div>
       <Nav />
-      <div>
+      <div className="dashpage">
         <h1> Your Dashboard page</h1>
         <div>
           <DashboardComponent
@@ -32,6 +33,7 @@ const Dashboard = () => {
             myPreference={myPreference}
           />
         </div>
+
       </div>
     </div>
   );

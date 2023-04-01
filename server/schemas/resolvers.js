@@ -10,8 +10,8 @@ const resolvers = {
       //needs args unless you are passing an parameter as the args. Context is the third parameter
       if (context.user) {
         return User.findOne({ _id: context.user._id })
-          .populate("connections")
-          .populate("connectRequest");
+          .populate({ path: "connections", select: "-__V" })
+          .populate({ path: "connectRequest", select: "-__V" });
       }
       throw new AuthenticationError("You need to be logged in!");
     },
