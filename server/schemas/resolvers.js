@@ -234,9 +234,7 @@ const resolvers = {
     },
     uploadFile: async (_parent, { file }, context) => {
       if (context.user) {
-        console.log(file);
         const { createReadStream, filename, mimetype, encoding } = await file;
-        console.log(file);
         const { Location } = await s3
           .upload({
             Body: createReadStream(),
@@ -249,7 +247,6 @@ const resolvers = {
           { $push: { pictures: Location } },
           { new: true }
         );
-        console.log(Location);
         return {
           filename,
           mimetype,

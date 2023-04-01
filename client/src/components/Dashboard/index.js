@@ -38,7 +38,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             </div>
           )}
           <p id="dashGender" className="dashDetails">
-            {myBio.gender} <span id="dashAge">, 28 </span>
+            {myBio.gender} <span id="dashAge">{myBio.age}</span>
           </p>
           <p id="dashOrientation" className="dashDetails">
             {myPreference.sexOrientation}
@@ -66,7 +66,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <p id="dashInterests">{myBio.interests}</p>
           </div>
           <div className="imgSlider">
-            <Carousel interval={null}>
+            <Carousel interval={null} wrap>
               {myBio.pictures
                 ? myBio.pictures.map((picture, index) => {
                     return (
