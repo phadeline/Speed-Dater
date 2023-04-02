@@ -9,7 +9,7 @@ import { QUERY_BIO } from "../../utils/queries";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 
 const Dashboard = () => {
-  // auth.checkAuth();
+
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
   const { loading: userLoading, data: userData } = useQuery(QUERY_USER);
   const { loading: preferenceLoading, data: preferenceData } =
@@ -19,23 +19,27 @@ const Dashboard = () => {
   const myUser = userData?.me || {};
   const myPreference = preferenceData?.preference || {};
 
-  if (bioLoading || preferenceLoading || userLoading) {
-    return <div> Loading...</div>;
-  }
-  return (
-    <div>
-      <div className="dashpage">
-        <h1> Your Dashboard page</h1>
-        <div>
-          <DashboardComponent
-            myBio={myBio}
-            myUser={myUser}
-            myPreference={myPreference}
-          />
+  if (!auth.loggedIn()) {
+    window.location.assign("/login");
+  } else {
+    if (bioLoading || preferenceLoading || userLoading) {
+      return <div> Loading...</div>;
+    }
+    return (
+      <div>
+        <div className="dashpage">
+          <h1> Your Dashboard page</h1>
+          <div>
+            <DashboardComponent
+              myBio={myBio}
+              myUser={myUser}
+              myPreference={myPreference}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Dashboard;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/bioform.css";
-import UploadFile from "../inputTest";
+
 
 import { useMutation } from "@apollo/client";
 import { ADD_BIO } from "../../utils/mutations";
@@ -177,10 +177,7 @@ const InitBioForm = () => {
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <div className="text-center uploadContainer">
-          <h3 className="upload">Upload Your Profile Photo</h3>
-          <UploadFile />
-        </div>
+        
 
         <Button
           disabled={

@@ -30,27 +30,31 @@ const Profile = () => {
   const myUser = userData?.connection || {};
   const myPreference = preferenceData?.connectionPreference || {};
 
-  if (bioLoading || preferenceLoading || userLoading) {
-    return <div> Loading...</div>;
-  }
-  return (
-    <div>
+  if (!auth.loggedIn()) {
+    window.location.assign("/login");
+  } else {
+    if (bioLoading || preferenceLoading || userLoading) {
+      return <div> Loading...</div>;
+    }
+    return (
       <div>
-        <h1> Your Profile page</h1>
         <div>
-          {/* {userLoading || bioLoading || preferenceLoading ? (
+          <h1> Your Profile page</h1>
+          <div>
+            {/* {userLoading || bioLoading || preferenceLoading ? (
           <div> Loading...</div>
         ) : ( */}
-          <MyProfile
-            myBio={myBio}
-            myUser={myUser}
-            myPreference={myPreference}
-          />
-          {/* )} */}
+            <MyProfile
+              myBio={myBio}
+              myUser={myUser}
+              myPreference={myPreference}
+            />
+            {/* )} */}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Profile;
