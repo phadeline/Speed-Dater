@@ -1,17 +1,23 @@
 import React from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_BIO } from "../../utils/queries";
 import UploadFile from "../../components/inputTest";
 
 const UploadPicturePage = () => {
   const { loading, data } = useQuery(QUERY_BIO);
-  const me = data?.me.pictures || {};
-  const [newUpload, setNewUpload] = useState;
+  const me = data?.bio.pictures || {};
 
   return (
     <div className="imgUpload">
-      <h3>Upload More Pictures Here!</h3>
+      <h1>Picture Upload</h1>
       <UploadFile />
+      {loading ? <h3>loading</h3> : null}
+      {me.pictures &&
+        me.pictures.map((picture) => {
+          return <img src={picture} className="preview"></img>;
+        })}
     </div>
   );
 };
+
+export default UploadPicturePage;
