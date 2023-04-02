@@ -34,7 +34,7 @@ const UploadFile = () => {
 
   return (
     <React.Fragment>
-      <Form.Group>
+      <Form.Group className="imgInput">
         <Form.Label htmlFor="input" className="inputText">
           Upload Pictures Here!
         </Form.Label>
