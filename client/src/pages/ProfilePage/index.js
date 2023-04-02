@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import MyProfile from "../../components/Profile";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
-import auth from"../../utils/auth";
+import auth from "../../utils/auth";
 
 import {
   CONNECTION_BIO,
@@ -12,7 +12,6 @@ import {
 } from "../../utils/queries";
 
 const Profile = () => {
-  auth.checkAuth();
   const userId = useParams().id;
   const { loading: bioLoading, data: bioData } = useQuery(CONNECTION_BIO, {
     variables: { userId },
@@ -30,29 +29,31 @@ const Profile = () => {
   const myBio = bioData?.connectionBio || {};
   const myUser = userData?.connection || {};
   const myPreference = preferenceData?.connectionPreference || {};
-
-  if (bioLoading || preferenceLoading || userLoading) {
-    return <div> Loading...</div>;
-  }
-  return (
-    <div>
-      <Nav></Nav>
+  if (!auth.loggedIn()) {
+    window.location.assign("/login");
+  } else {
+    if (bioLoading || preferenceLoading || userLoading) {
+      return <div> Loading...</div>;
+    }
+    return (
       <div>
-        <h1> Your Profile page</h1>
         <div>
-          {/* {userLoading || bioLoading || preferenceLoading ? (
+          <h1> Your Profile page</h1>
+          <div>
+            {/* {userLoading || bioLoading || preferenceLoading ? (
           <div> Loading...</div>
         ) : ( */}
-          <MyProfile
-            myBio={myBio}
-            myUser={myUser}
-            myPreference={myPreference}
-          />
-          {/* )} */}
+            <MyProfile
+              myBio={myBio}
+              myUser={myUser}
+              myPreference={myPreference}
+            />
+            {/* )} */}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Profile;
