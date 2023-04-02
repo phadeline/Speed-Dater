@@ -59,6 +59,11 @@ function Nav() {
                 </a>
               </li>
               <li className="nav-item">
+                <a className="nav-link" href="/editpreference">
+                  Edit Preferences
+                </a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" onClick={userLogout}>
                   Logout
                 </a>

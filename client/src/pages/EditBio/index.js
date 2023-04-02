@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import EditBioForm from "../../components/BioInputEdit";
 import { QUERY_BIO } from "../../utils/queries";
-import Nav from "../../components/Nav";
 import auth from "../../utils/auth";
 
 const EditBio = () => {

@@ -2,24 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
 import { useMutation } from "@apollo/client";
-import { UPDATE_BIO } from "../../utils/mutations";
+import { UPDATE_PREFERENCE } from "../../utils/mutations";
 
 
 
 
-const EditBioForm = ({ myBio }) => {
+const EditPreferenceForm = ({ myPreference }) => {
 
     
 
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     
-    interests: myBio.interests,
-      bio: myBio.bio,
-      age: myBio.age,
-      gender: myBio.gender,
-      location: myBio.location,
-      pictures: myBio.pictures,
+    ageMin: myPreference.ageMin,
+    ageMax: myPreference.ageMax,
+    sexOrientation: myPreference.sexOrientation,
+    gender: myPreference.gender,
+    location: myPreference.location,
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -27,7 +26,7 @@ const EditBioForm = ({ myBio }) => {
   const [showAlert, setShowAlert] = useState(false);
 
 
-  const [updateBio, { error }] = useMutation(UPDATE_BIO);
+  const [updatePreference, { error }] = useMutation(UPDATE_PREFERENCE);
 
   useEffect(() => {
     if (error) {
@@ -53,31 +52,28 @@ const EditBioForm = ({ myBio }) => {
     }
 
     try {
-      const { data } = await updateBio({
+      const { data } = await updatePreference({
           variables: {
-            interests: userFormData.interests,
-            bio: userFormData.bio,
-            age: parseInt(userFormData.age),
+            ageMin: parseInt(userFormData.ageMin),
+            ageMax: parseInt(userFormData.ageMax),
+            sexOrientation: userFormData.sexOrientation,
             gender: userFormData.gender,
             location: userFormData.location,
-            pictures: userFormData.pictures,
           }
         
       });
       console.log(data);
-    //   Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
 
     setUserFormData({
-        interests: "",
-        bio: "",
-        age: "",
+        ageMin: "",
+        ageMax: "",
+        sexOrientation: "",
         gender: "",
         location: "",
-        pictures
-        : "",
+        
     });
   };
 
@@ -96,50 +92,48 @@ const EditBioForm = ({ myBio }) => {
         </Alert>
         
         <Form.Group>
-          <Form.Label htmlFor="interests">interests</Form.Label>
+          <Form.Label htmlFor="ageMin">Min Age </Form.Label>
           
           <Form.Control
             type="text"
-        
-            name="interests"
+            name="ageMin"
             onChange={handleInputChange}
-            value={userFormData.interests}
+            value={userFormData.ageMin}
             required
             
           />
           <Form.Control.Feedback type="invalid">
-            Username is required!
+            Minimum age preference is required!
           </Form.Control.Feedback>
           
         </Form.Group>
-        {myBio.interests}
+       
         <Form.Group>
-          <Form.Label htmlFor="bio">bio</Form.Label>
+          <Form.Label htmlFor="ageMax">Max Age</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your bio here"
-            name="bio"
+            placeholder="Maximum preferred age"
+            name="ageMax"
             onChange={handleInputChange}
-            value={userFormData.bio}
+            value={userFormData.ageMax}
             required
           />
           <Form.Control.Feedback type="invalid">
-            Email is required!
+            Maximum age preference is required!
           </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="age">age</Form.Label>
+          <Form.Label htmlFor="sexOrientation">Sexual Orientation</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Your age"
-            name="age"
+            name="sexOrientation"
             onChange={handleInputChange}
-            value={userFormData.age}
+            value={userFormData.sexOrientation}
             required
           />
           <Form.Control.Feedback type="invalid">
-            Password is required!
+            Please include your sexual orientation.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -154,7 +148,7 @@ const EditBioForm = ({ myBio }) => {
             required
           />
           <Form.Control.Feedback type="invalid">
-            Username is required!
+            Please enter your preferred gender.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -169,39 +163,23 @@ const EditBioForm = ({ myBio }) => {
             required
           />
           <Form.Control.Feedback type="invalid">
-            Email is required!
+             Please enter your preferred match's location.
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="pictures">Password</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your password"
-            name="pictures"
-            onChange={handleInputChange}
-            value={userFormData.pictures}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
 
 
         <Button
           disabled={
             !(
-              userFormData.interests &&
-              userFormData.bio &&
-              userFormData.age &&
+              userFormData.ageMin &&
+              userFormData.ageMax &&
+              userFormData.sexOrientation &&
               userFormData.gender &&
-              userFormData.location &&
-              userFormData.pictures
-
-
+              userFormData.location 
             )
-          }
+            
+            }
           type="submit"
           variant="success"
         >
@@ -212,4 +190,4 @@ const EditBioForm = ({ myBio }) => {
   );
 };
 
-export default EditBioForm;
+export default EditPreferenceForm;

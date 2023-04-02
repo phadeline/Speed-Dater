@@ -20,6 +20,7 @@ import Nav from "./components/Nav/index.js";
 import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
 import { InvalidTokenError } from "jwt-decode";
+import EditPreference from "./pages/EditPreferenceForm/index.js";
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -64,6 +65,7 @@ function App() {
             <Route path="/test2" element={<InitPreferencePage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/editbio" element={<EditBio />} />
+            <Route path="/editpreference" element={<EditPreference />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
