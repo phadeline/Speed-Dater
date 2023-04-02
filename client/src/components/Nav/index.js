@@ -1,15 +1,13 @@
 import React from "react";
-import Auth from "../../utils/auth";
+import auth from "../../utils/auth";
 import "../../styles/nav.css";
 import logo from "../../image/logo.png";
 
 //function to create the nav bar
 function Nav() {
-  
   function userLogout() {
-    Auth.logout();
+    auth.logout();
   }
-
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -58,16 +56,25 @@ function Nav() {
                   Edit Bio
                 </a>
               </li>
+
               <li className="nav-item">
                 <a className="nav-link" href="/editpreference">
                   Edit Preferences
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={userLogout}>
-                  Logout
-                </a>
-              </li>
+              {auth.loggedIn() ? (
+                <li className="nav-item">
+                  <a className="nav-link" onClick={userLogout}>
+                    Logout
+                  </a>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Login
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

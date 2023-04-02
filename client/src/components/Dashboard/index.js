@@ -1,13 +1,14 @@
-import React from "react";
-import { Container, Carousel } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Carousel, Button } from "react-bootstrap";
 import "../../index.css";
 import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import ConnectionRequest from "../connectionRequest";
+import UploadFile from "../inputTest";
 
 const DashboardComponent = ({ myUser, myBio, myPreference }) => {
   const [deleteConnection] = useMutation(DELETE_CONNECTION);
-
+  const [upload, setUpload] = useState(false);
   const deleteConHandler = async (userId) => {
     try {
       const { data } = deleteConnection({ variables: { userId: userId } }).then(
@@ -16,6 +17,10 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleUpload = () => {
+    setUpload(true);
   };
 
   if (!myBio || !myPreference) {
@@ -56,7 +61,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
         </div>
       </section>
       <section id="bioSnip">
-        <div id="bioDive">
+        <div id="bioDiv">
           <div>
             <h3>My Bio</h3>
           </div>
@@ -66,22 +71,31 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <p id="dashInterests">{myBio.interests}</p>
           </div>
           <div className="imgSlider">
-            <Carousel interval={null} wrap>
-              {myBio.pictures
-                ? myBio.pictures.map((picture, index) => {
-                    return (
-                      <Carousel.Item key={index}>
-                        <img
-                          className="sliderimgDash"
-                          src={picture}
-                          key={picture}
-                        ></img>
-                      </Carousel.Item>
-                    );
-                  })
-                : null}
-            </Carousel>
+            {myBio.pictures.length && !upload ? (
+              <Carousel interval={null} wrap>
+                {myBio.pictures
+                  ? myBio.pictures.map((picture, index) => {
+                      return (
+                        <Carousel.Item key={index}>
+                          <img
+                            className="sliderimgDash"
+                            src={picture}
+                            key={picture}
+                          ></img>
+                        </Carousel.Item>
+                      );
+                    })
+                  : null}
+              </Carousel>
+            ) : null}
           </div>
+          {!upload ? (
+            <Button className="btn" onClick={handleUpload}>
+              Add Pictures
+            </Button>
+          ) : (
+            <UploadFile className="dashPic" />
+          )}
         </div>
       </section>
       <section id="connectionList">

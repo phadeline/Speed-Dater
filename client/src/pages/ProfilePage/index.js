@@ -29,6 +29,7 @@ const Profile = () => {
   const myBio = bioData?.connectionBio || {};
   const myUser = userData?.connection || {};
   const myPreference = preferenceData?.connectionPreference || {};
+
   if (!auth.loggedIn()) {
     window.location.assign("/login");
   } else {

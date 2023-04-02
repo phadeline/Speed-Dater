@@ -149,8 +149,8 @@ const resolvers = {
           { new: true }
         );
         const newConnect2 = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { connections: context.userId } },
+          { _id: userId },
+          { $push: { connections: context.user._id } },
           { new: true }
         );
         const deleteRequest = await User.findOneAndUpdate(

@@ -9,6 +9,7 @@ const EditBio = () => {
 
   const myBio = bioData?.bio || {};
 
+
   if (!auth.loggedIn()) {
     window.location.assign("/login");
   } else {
