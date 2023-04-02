@@ -15,7 +15,9 @@ import InitBioPage from "./pages/bioForm/index.js";
 import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
 
+import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
+import { InvalidTokenError } from "jwt-decode";
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -29,6 +31,8 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
+
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createUploadLink({
@@ -47,10 +51,10 @@ function App() {
       <Router>
         <>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<SignupForm />} />
+            <Route path="/" element={<LandingPage />}  />
+            <Route path="/login"  element={<SignupForm />} />
             <Route path="/test" element={<UploadFile />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard/>}   />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/test1" element={<InitBioPage />} />
