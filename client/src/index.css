@@ -134,7 +134,14 @@ code {
   display: flex;
   flex-direction: column;
   width: 30vw;
+  align-items: center;
+}
 
+#bioDiv Button {
+  margin-top: 1vh;
+  max-width: 6vw;
+  max-height: 4vh;
+  font-size: 15px;
 }
 
 #profileBox {
@@ -161,4 +168,15 @@ code {
 .imgInput Button {
   margin-top: 1vh;
   max-width: 5vw;;
+}
+
+.imgInput {
+  display: flex;
+  border: 1px black solid;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-radius: 15px;
+  align-items: center;
 }

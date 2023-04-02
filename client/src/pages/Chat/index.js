@@ -8,6 +8,7 @@ const Chat = () => {
   const handleEndChat = async () => {};
 
   const handleNextChat = async () => {};
+
   if (!auth.loggedIn()) {
     window.location.assign("/login");
   } else {

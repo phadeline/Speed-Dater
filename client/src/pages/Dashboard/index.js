@@ -9,6 +9,7 @@ import { QUERY_BIO } from "../../utils/queries";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 
 const Dashboard = () => {
+
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
   const { loading: userLoading, data: userData } = useQuery(QUERY_USER);
   const { loading: preferenceLoading, data: preferenceData } =
@@ -17,6 +18,7 @@ const Dashboard = () => {
   const myBio = bioData?.bio || {};
   const myUser = userData?.me || {};
   const myPreference = preferenceData?.preference || {};
+
   if (!auth.loggedIn()) {
     window.location.assign("/login");
   } else {
