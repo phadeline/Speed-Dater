@@ -1,5 +1,5 @@
 
-import decode from 'jwt-decode';
+import decode, { InvalidTokenError } from 'jwt-decode';
 
 class Auth {
   
@@ -11,6 +11,7 @@ class Auth {
   loggedIn() {
     // Checks if there is a saved token and it's still valid
     const token = this.getToken();
+    
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
@@ -35,6 +36,13 @@ class Auth {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
     window.location.assign('/dashboard');
+  }
+ 
+  checkAuth() {
+    if (this.token = InvalidTokenError){
+      window.location.assign('/login');
+    }
+  return InvalidTokenError ? true : false;
   }
 
   logout() {

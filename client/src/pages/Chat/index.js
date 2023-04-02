@@ -1,7 +1,9 @@
 import React from "react";
 import Nav from "../../components/Nav";
+import auth from "../../utils/auth";
 
 const Chat = () => {
+  auth.checkAuth();
   const handleConnectBtn = async () => {};
 
   const handleEndChat = async () => {};

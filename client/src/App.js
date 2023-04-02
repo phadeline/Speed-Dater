@@ -17,7 +17,9 @@ import EditBio from "./pages/EditBio/index.js";
 import UploadPicturePage from "./pages/PictureForm/index.js";
 import Nav from "./components/Nav/index.js";
 
+import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
+import { InvalidTokenError } from "jwt-decode";
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -31,6 +33,8 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
+
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createUploadLink({

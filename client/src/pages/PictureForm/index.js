@@ -2,8 +2,10 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_BIO } from "../../utils/queries";
 import UploadFile from "../../components/inputTest";
+import auth from "../../utils/auth";
 
 const UploadPicturePage = () => {
+  auth.checkAuth();
   const { loading, data } = useQuery(QUERY_BIO);
   const me = data?.bio.pictures || {};
   //attempting dynamic rendering
