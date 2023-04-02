@@ -144,3 +144,21 @@ code {
   height: 30vh;
   object-fit: cover;
 }
+
+.imgUpload{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.imgInput {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  
+}
+.imgInput Button {
+  margin-top: 1vh;
+  max-width: 5vw;;
+}

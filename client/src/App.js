@@ -14,6 +14,8 @@ import { createUploadLink } from "apollo-upload-client";
 import InitBioPage from "./pages/bioForm/index.js";
 import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
+import UploadPicturePage from "./pages/PictureForm/index.js";
+import Nav from "./components/Nav/index.js";
 
 import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
@@ -48,13 +50,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Nav />
       <Router>
         <>
           <Routes>
-            <Route path="/" element={<LandingPage />}  />
-            <Route path="/login"  element={<SignupForm />} />
-            <Route path="/test" element={<UploadFile />} />
-            <Route path="/dashboard" element={<Dashboard/>}   />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<SignupForm />} />
+            <Route path="/test" element={<UploadPicturePage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/test1" element={<InitBioPage />} />
