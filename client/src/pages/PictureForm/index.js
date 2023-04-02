@@ -6,7 +6,7 @@ import UploadFile from "../../components/inputTest";
 const UploadPicturePage = () => {
   const { loading, data } = useQuery(QUERY_BIO);
   const me = data?.bio.pictures || {};
-
+  //attempting dynamic rendering
   return (
     <div className="imgUpload">
       <h1>Picture Upload</h1>
