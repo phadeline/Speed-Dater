@@ -19,7 +19,6 @@ export const ADD_BIO = gql`
     $age: Int!
     $gender: String!
     $location: String!
-    $pictures: String
   ) {
     addBio(
       interests: $interests
@@ -27,17 +26,41 @@ export const ADD_BIO = gql`
       age: $age
       gender: $gender
       location: $location
-      pictures: $pictures
     ) {
       interests
       bio
       age
       gender
       location
-      pictures
     }
   }
 `;
+
+export const UPDATE_BIO = gql`
+  mutation updateBio(
+    $interests: String!
+    $bio: String!
+    $age: Int!
+    $gender: String!
+    $location: String!
+  ) {
+    updateBio(
+      interests: $interests
+      bio: $bio
+      age: $age
+      gender: $gender
+      location: $location
+    ) {
+      interests
+      bio
+      age
+      gender
+      location
+    }
+  }
+`;
+
+
 
 export const ADD_PREFERENCE = gql`
   mutation addPreference(
@@ -62,6 +85,30 @@ export const ADD_PREFERENCE = gql`
     }
   }
 `;
+export const UPDATE_PREFERENCE = gql`
+  mutation updatePreference(
+    $ageMin: Int!
+    $ageMax: Int!
+    $sexOrientation: String!
+    $gender: String!
+    $location: String!
+  ) {
+    updatePreference(
+      ageMin: $ageMin
+      ageMax: $ageMax
+      sexOrientation: $sexOrientation
+      gender: $gender
+      location: $location
+    ) {
+      ageMin
+      ageMax
+      sexOrientation
+      gender
+      location
+    }
+  }
+`;
+
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {

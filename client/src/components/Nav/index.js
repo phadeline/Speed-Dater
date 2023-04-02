@@ -56,6 +56,12 @@ function Nav() {
                   Edit Bio
                 </a>
               </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/editpreference">
+                  Edit Preferences
+                </a>
+              </li>
               {auth.loggedIn() ? (
                 <li className="nav-item">
                   <a className="nav-link" onClick={userLogout}>

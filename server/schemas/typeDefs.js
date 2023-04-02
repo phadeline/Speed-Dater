@@ -75,7 +75,6 @@ const typeDefs = gql`
       location: String
       age: Int
       gender: String
-      pictures: String
     ): Bio
 
     addPreference(
