@@ -2,14 +2,14 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import DashboardComponent from "../../components/Dashboard";
 import Nav from "../../components/Nav";
-import auth from "../../utils/auth"
+import auth from "../../utils/auth";
 
 import { QUERY_USER } from "../../utils/queries";
 import { QUERY_BIO } from "../../utils/queries";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 
 const Dashboard = () => {
-  auth.checkAuth();
+  // auth.checkAuth();
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
   const { loading: userLoading, data: userData } = useQuery(QUERY_USER);
   const { loading: preferenceLoading, data: preferenceData } =
@@ -24,7 +24,6 @@ const Dashboard = () => {
   }
   return (
     <div>
-      <Nav />
       <div className="dashpage">
         <h1> Your Dashboard page</h1>
         <div>

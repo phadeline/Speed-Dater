@@ -4,7 +4,7 @@ import "../../styles/signupLogin.css";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
-import Auth from "../../utils/auth";
+import auth from "../../utils/auth";
 
 const SignupForm = () => {
   // set initial form state
@@ -48,7 +48,7 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       console.log(data);
-      Auth.login(data.addUser.token);
+      auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
@@ -58,7 +58,7 @@ const SignupForm = () => {
       email: "",
       password: "",
     });
-    window.location.assign('/test1');
+    window.location.assign("/test1");
   };
 
   return (
@@ -99,7 +99,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="email" className="formText">Email</Form.Label>
+          <Form.Label htmlFor="email" className="formText">
+            Email
+          </Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -115,7 +117,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password" className="formText">Password</Form.Label>
+          <Form.Label htmlFor="password" className="formText">
+            Password
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"

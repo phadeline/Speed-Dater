@@ -11,10 +11,7 @@ const Chat = () => {
   const handleNextChat = async () => {};
   return (
     <div>
-      <Nav></Nav>
       <div className="chatPage">
-        {/* <PartnerInfo />
-    <Chat /> */}
         <div className="actions">
           <button className="btn connectBtn">Connect</button>
           <button className="btn endBtn">End Chat</button>

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import MyProfile from "../../components/Profile";
 import { useParams } from "react-router-dom";
 import Nav from "../../components/Nav";
-import auth from"../../utils/auth";
+import auth from "../../utils/auth";
 
 import {
   CONNECTION_BIO,
@@ -12,7 +12,6 @@ import {
 } from "../../utils/queries";
 
 const Profile = () => {
-  auth.checkAuth();
   const userId = useParams().id;
   const { loading: bioLoading, data: bioData } = useQuery(CONNECTION_BIO, {
     variables: { userId },
@@ -36,7 +35,6 @@ const Profile = () => {
   }
   return (
     <div>
-      <Nav></Nav>
       <div>
         <h1> Your Profile page</h1>
         <div>
