@@ -26,9 +26,9 @@ const Dashboard = () => {
       return <div> Loading...</div>;
     }
     return (
-      <div>
+      
         <div className="dashpage">
-          <h1 id='dashwelcome'> Welcome,  {myUser.username}</h1>
+          <h1 id='dashwelcome'> Welcome,  {myUser.username}!</h1>
           <div>
             <DashboardComponent
               myBio={myBio} 
@@ -37,7 +37,7 @@ const Dashboard = () => {
             />
           </div>
         </div>
-      </div>
+      
     );
   }
 };

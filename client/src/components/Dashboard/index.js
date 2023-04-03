@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Carousel, Button, Row, Col } from "react-bootstrap";
+import { Container, Carousel, Button, Row, Col, Card, Figure } from "react-bootstrap";
 import "../../styles/dashboard.css";
 import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
@@ -39,12 +39,14 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
  
 
   return (
-    <Container id="">
+    <Container id="container">
+      
     <Row>
-      <Col id="first"> 
+      <Col md={3} id="first"> 
+      <Card id="card1">
+      <Card.Header as="h5" id='head1'>{myUser.username}</Card.Header>
+
           
-          
-          <div>
           {myBio.pictures && (
             <div id="usersPicture">
               <img id="propic"
@@ -63,7 +65,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
           <p id="dashLocation" className="dashDetails">
             {myBio.location}
           </p>
-          <div>
+          
             <h4>My Preferences</h4>
             <ul>
             <li>Minimum Age:{myPreference.ageMin}</li>
@@ -71,11 +73,13 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <li>Interested In:{myPreference.gender}</li>
             <li>Preferred Location: {myPreference.location}</li>
             </ul>
-          </div>
-          </div>
+          
+          </Card>
         </Col>
-      <Col xs={6} id="second">
-            <h3>My Bio</h3>
+      <Col lg={5} id="second">
+        <Card id='card2'>
+      <Card.Header as="h5" id="head2">My Bio</Card.Header>
+           
           
           <div id="dashbioContent">
             <p id="dashBioSummary">{myBio.bio}</p>
@@ -101,18 +105,20 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
               </Carousel>
             ) : null}
           </div>
+          <div>
           {!upload ? (
-            <Button className="btn" onClick={handleUpload}>
+            <Button className="btn" id='imgBtn' onClick={handleUpload}>
               Add Pictures
             </Button>
           ) : (
             <UploadFile className="dashPic" />
           )}
-        {/* </div> */}
-      
+        </div>
+      </Card>
       </Col>
-      <Col>
-      
+      <Col id='third'>
+      <Card id='card3'>
+      <Card.Header as="h5"  id="connectTitle">Connections</Card.Header>
       <section id="connectionList">
         <section id="connectionRequest">
           <h3>Connection Requests</h3>
@@ -147,14 +153,14 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                    </div>
                    </section>
       
-      
+      </Card>
       </Col> 
     </Row>
-    <Row>
+    {/* <Row>
       <Col>1 of 3</Col>
       <Col xs={5}>2 of 3 (wider)</Col>
       <Col>3 of 3</Col>
-    </Row>
+    </Row> */}
   </Container>
               );
             };
