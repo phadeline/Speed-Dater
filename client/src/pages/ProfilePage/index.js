@@ -39,15 +39,11 @@ const Profile = () => {
     return (
       <div>
         <div>
-          {/* {userLoading || bioLoading || preferenceLoading ? (
-          <div> Loading...</div>
-        ) : ( */}
           <MyProfile
             myBio={myBio}
             myUser={myUser}
             myPreference={myPreference}
           />
-          {/* )} */}
         </div>
       </div>
     );
