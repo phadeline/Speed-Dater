@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import EditBioForm from "../../components/BioInputEdit";
 import { QUERY_BIO } from "../../utils/queries";
 import auth from "../../utils/auth";
+import "../../styles/bioform.css";
 
 const EditBio = () => {
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
@@ -20,8 +21,8 @@ const EditBio = () => {
       <div>
       
 
-        <h1> Edit Your Bio</h1>
-        <p>{myBio.bio}</p>
+        <h1 className="editHeading"> Edit Your Bio</h1>
+        
         <div>
           <EditBioForm myBio={myBio} />
           {/* } */}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-
+import "../../styles/bioform.css";
 import { useMutation } from "@apollo/client";
 import { UPDATE_BIO } from "../../utils/mutations";
 
@@ -19,7 +19,7 @@ const EditBioForm = ({ myBio }) => {
       age: myBio.age,
       gender: myBio.gender,
       location: myBio.location,
-      pictures: myBio.pictures,
+     
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -59,8 +59,8 @@ const EditBioForm = ({ myBio }) => {
             bio: userFormData.bio,
             age: parseInt(userFormData.age),
             gender: userFormData.gender,
-            location: userFormData.location,
-            pictures: userFormData.pictures,
+            location: userFormData.location
+           
           }
         
       });
@@ -75,16 +75,17 @@ const EditBioForm = ({ myBio }) => {
         bio: "",
         age: "",
         gender: "",
-        location: "",
-        pictures
-        : "",
+        location: ""
+        
     });
   };
 
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}
+       className="col-lg-6 col-md-6 col-sm-12 bioForm">
+    
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -95,8 +96,8 @@ const EditBioForm = ({ myBio }) => {
           Something went wrong with your signup!
         </Alert>
         
-        <Form.Group>
-          <Form.Label htmlFor="interests">interests</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText">interests</Form.Label>
           
           <Form.Control
             type="text"
@@ -111,10 +112,10 @@ const EditBioForm = ({ myBio }) => {
             Username is required!
           </Form.Control.Feedback>
           
-        </Form.Group>
-        {myBio.interests}
-        <Form.Group>
-          <Form.Label htmlFor="bio">bio</Form.Label>
+        </Form.Group >
+        
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="bio">bio</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your bio here"
@@ -128,8 +129,8 @@ const EditBioForm = ({ myBio }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="age">age</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label htmlFor="age" className="bioText">age</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your age"
@@ -143,8 +144,8 @@ const EditBioForm = ({ myBio }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="gender">gender</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="gender">gender</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your gender"
@@ -158,8 +159,8 @@ const EditBioForm = ({ myBio }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="location">location</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="location">location</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your city"
@@ -173,20 +174,7 @@ const EditBioForm = ({ myBio }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="pictures">Password</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Your password"
-            name="pictures"
-            onChange={handleInputChange}
-            value={userFormData.pictures}
-            required
-          />
-          <Form.Control.Feedback type="invalid">
-            Password is required!
-          </Form.Control.Feedback>
-        </Form.Group>
+       
 
 
         <Button
@@ -196,8 +184,8 @@ const EditBioForm = ({ myBio }) => {
               userFormData.bio &&
               userFormData.age &&
               userFormData.gender &&
-              userFormData.location &&
-              userFormData.pictures
+              userFormData.location 
+            
 
 
             )

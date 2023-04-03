@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Container, Carousel, Button } from "react-bootstrap";
-import "../../index.css";
+import "../../styles/dashboard.css";
 import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import ConnectionRequest from "../connectionRequest";
 import UploadFile from "../inputTest";
+
+
+
+
 
 const DashboardComponent = ({ myUser, myBio, myPreference }) => {
   const [deleteConnection] = useMutation(DELETE_CONNECTION);
@@ -26,24 +30,27 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
   if (!myBio || !myPreference) {
     return <h1>Please add a bio and preferences</h1>;
   }
+
+ 
+
   return (
     <Container id="case">
       <section id="profileSnip">
         <div id="profileBox">
           <div>
-            <h3 id="dashUsername"> {myUser.username} </h3>
+          
           </div>
           {myBio.pictures && (
             <div id="usersPicture">
               <img
                 className="profilePicture col-lg-12 col-md-12 col-sm-12"
-                src={myBio.pictures[0]}
+                src={myBio.pictures[1]}
                 alt={`${myUser.username}'s profile picture`}
               ></img>
             </div>
           )}
           <p id="dashGender" className="dashDetails">
-            {myBio.gender} <span id="dashAge">{myBio.age}</span>
+            {myBio.gender}, <span id="dashAge">{myBio.age}</span>
           </p>
           <p id="dashOrientation" className="dashDetails">
             {myPreference.sexOrientation}
@@ -53,10 +60,12 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
           </p>
           <div>
             <h4>My Preferences</h4>
-            <p>Minimum Age:{myPreference.ageMin}</p>
-            <p>Maximum Age:{myPreference.ageMax}</p>
-            <p>Interested In:{myPreference.gender}</p>
-            <p>Preferred Location: {myPreference.location}</p>
+            <ul>
+            <li>Minimum Age:{myPreference.ageMin}</li>
+            <li>Maximum Age:{myPreference.ageMax}</li>
+            <li>Interested In:{myPreference.gender}</li>
+            <li>Preferred Location: {myPreference.location}</li>
+            </ul>
           </div>
         </div>
       </section>

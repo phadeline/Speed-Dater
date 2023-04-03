@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import "../../styles/bioform.css";
 
 import { useMutation } from "@apollo/client";
 import { UPDATE_PREFERENCE } from "../../utils/mutations";
@@ -80,7 +81,8 @@ const EditPreferenceForm = ({ myPreference }) => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}
+      className="col-lg-6 col-md-6 col-sm-12 bioForm">
         {/* show alert if server response is bad */}
         <Alert
           dismissible
@@ -91,8 +93,8 @@ const EditPreferenceForm = ({ myPreference }) => {
           Something went wrong with your signup!
         </Alert>
         
-        <Form.Group>
-          <Form.Label htmlFor="ageMin">Min Age </Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="ageMin">Min Age </Form.Label>
           
           <Form.Control
             type="text"
@@ -108,8 +110,8 @@ const EditPreferenceForm = ({ myPreference }) => {
           
         </Form.Group>
        
-        <Form.Group>
-          <Form.Label htmlFor="ageMax">Max Age</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="ageMax">Max Age</Form.Label>
           <Form.Control
             type="text"
             placeholder="Maximum preferred age"
@@ -123,8 +125,8 @@ const EditPreferenceForm = ({ myPreference }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="sexOrientation">Sexual Orientation</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bitText" htmlFor="sexOrientation">Sexual Orientation</Form.Label>
           <Form.Control
             type="text"
             name="sexOrientation"
@@ -137,8 +139,8 @@ const EditPreferenceForm = ({ myPreference }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="gender">gender</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="gender">gender</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your gender"
@@ -152,8 +154,8 @@ const EditPreferenceForm = ({ myPreference }) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="location">location</Form.Label>
+        <Form.Group className="bioGroup">
+          <Form.Label className="bioText" htmlFor="location">location</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your city"

@@ -1,0 +1,206 @@
+
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.dashpage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  #dashwelcome {
+    width: 100%;
+    /* margin-left: 20px; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(190, 187, 187);
+    color: rgb(248, 247, 248);
+    text-indent: 20px;
+    
+  }
+  
+  #case {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    margin-left:70px;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  #profileSnip {
+    display: flex;
+    width: 18%;
+    height: 600px;
+    /* border-left: solid lightgrey .1px; */
+    /* border-right: solid lightgrey .1px; */
+    /* border-radius: 13%; */
+    flex-direction: column;
+    /* text-align: center; */
+    align-content: center;
+    margin-right: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  #usersPicture {
+    margin-top:0;
+    padding-top:0;
+    border-top: 0;
+    display: flex;
+    height: 280px;
+    width: 190px;
+    /* border: solid lightgrey 1px; */
+    border-radius: 50%;
+    /* margin-bottom: 5px; */
+    align-self: center;
+    /* justify-self: flex-start; */
+  }
+  
+  #usersPicture img{
+    border-radius: 50%;
+  }
+  
+  .dashDetails{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    font-size: 13px;
+    /* color: darkgrey; */
+    font-style: italic;
+  }
+  
+  
+  #bioSnip {
+    display: flex;
+    width: 50%;
+    height: 600px;
+    /* border-right: solid lightgrey 1px; */
+    border-left: solid lightgrey 1px;
+    padding-left: 150px;
+    /* border-radius: 13%; */
+    flex-direction: column;
+    align-content:  center;
+    margin-right: 50px;
+  }
+  
+  #dashbioContent {
+    align-items: center;
+    text-align: center;
+    width: 100%
+    /* margin-left: 2vw; */
+  
+  }
+  
+  #bioSnip h3 {
+  justify-self: center;
+  display:flex;
+    width: 380px;
+    border-bottom: solid lightgrey 1px;
+    text-align: center;
+  }
+  #bioSnip h4 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+  }
+  
+  
+  #connectionList {
+    display: flex;
+    width: 18%;
+    height: 60vh;
+    border-left: solid lightgrey 1px;
+    /* border-radius: 13%; */
+    flex-direction: column;
+    align-content: center;
+  }
+  
+  #connectionList h3{
+    margin-left:10px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  #dashFriends {
+    width: 16vw;
+    justify-content: center;
+    margin-left: 20px;
+  }
+  
+  .sliderimg {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+  }
+  
+  #connectionRequest {
+    margin-top: 1vh;
+    height: 19vh;
+  }
+  
+  .sliderimgDash{
+    width: 20vw;
+  }
+  
+  .carousel-indicators li {
+    background-color: grey !important;
+  }
+  
+  .imgSlider {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+  }
+  
+  #bioDiv {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    align-items: center;
+  }
+  
+  #bioDiv Button {
+    margin-top: 1vh;
+    max-width: 6vw;
+    max-height: 4vh;
+    font-size: 15px;
+  }
+  
+  /* #profileBox {
+    display: flex;
+    flex-direction: column;
+    width: 17vw;
+    height: 30vh;
+    object-fit: cover;
+  } */
+  
+  .imgUpload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+  }
+  
+  .imgInput {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    
+  }
+  .imgInput Button {
+    margin-top: 1vh;
+    max-width: 5vw;;
+  }
+  
+  .imgInput {
+    display: flex;
+    border: 1px black solid;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 15px;
+    align-items: center;
+  }

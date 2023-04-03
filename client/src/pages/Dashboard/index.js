@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import DashboardComponent from "../../components/Dashboard";
-import Nav from "../../components/Nav";
+import "../../styles/dashboard.css";
 import auth from "../../utils/auth";
 
 import { QUERY_USER } from "../../utils/queries";
@@ -28,10 +28,10 @@ const Dashboard = () => {
     return (
       <div>
         <div className="dashpage">
-          <h1> Your Dashboard page</h1>
+          <h1 id='dashwelcome'> Welcome,  {myUser.username}</h1>
           <div>
             <DashboardComponent
-              myBio={myBio}
+              myBio={myBio} 
               myUser={myUser}
               myPreference={myPreference}
             />
