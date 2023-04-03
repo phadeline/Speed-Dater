@@ -21,7 +21,6 @@ const AllProfiles = (props) => {
               <img className="plistPic" src={user.pictures[0]} />
             ) : null}
             </div>
-            {/* <div className="userInfo"> */}
             <div id="writtenInfo">
             <p>{user.bio}</p>
               <h6>
