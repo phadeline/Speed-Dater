@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Container, Carousel, Button } from "react-bootstrap";
+import { Container, Carousel, Button, Row, Col } from "react-bootstrap";
 import "../../styles/dashboard.css";
 import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import ConnectionRequest from "../connectionRequest";
 import UploadFile from "../inputTest";
+
+
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 
 
 
@@ -34,15 +39,15 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
  
 
   return (
-    <Container id="case">
-      <section id="profileSnip">
-        <div id="profileBox">
-          <div>
+    <Container id="">
+    <Row>
+      <Col id="first"> 
           
-          </div>
+          
+          <div>
           {myBio.pictures && (
             <div id="usersPicture">
-              <img
+              <img id="propic"
                 className="profilePicture col-lg-12 col-md-12 col-sm-12"
                 src={myBio.pictures[1]}
                 alt={`${myUser.username}'s profile picture`}
@@ -67,13 +72,11 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <li>Preferred Location: {myPreference.location}</li>
             </ul>
           </div>
-        </div>
-      </section>
-      <section id="bioSnip">
-        <div id="bioDiv">
-          <div>
-            <h3>My Bio</h3>
           </div>
+        </Col>
+      <Col xs={6} id="second">
+            <h3>My Bio</h3>
+          
           <div id="dashbioContent">
             <p id="dashBioSummary">{myBio.bio}</p>
             <h4>Interests:</h4>
@@ -105,8 +108,11 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
           ) : (
             <UploadFile className="dashPic" />
           )}
-        </div>
-      </section>
+        {/* </div> */}
+      
+      </Col>
+      <Col>
+      
       <section id="connectionList">
         <section id="connectionRequest">
           <h3>Connection Requests</h3>
@@ -135,12 +141,31 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                     Remove Friend
                   </button>
                 </div>
+     
+                     );
+                   })}
+                   </div>
+                   </section>
+      
+      
+      </Col> 
+    </Row>
+    <Row>
+      <Col>1 of 3</Col>
+      <Col xs={5}>2 of 3 (wider)</Col>
+      <Col>3 of 3</Col>
+    </Row>
+  </Container>
               );
-            })}
-        </div>
-      </section>
-    </Container>
-  );
-};
+            };
+
+
+
+
+
+
+
+
+
 
 export default DashboardComponent;
