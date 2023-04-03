@@ -24,7 +24,7 @@ const resolvers = {
       );
     },
     bios: async () => {
-      return Bio.find();
+      return Bio.find().populate("userId");
     },
 
     users: async () => {

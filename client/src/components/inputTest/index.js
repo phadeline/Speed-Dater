@@ -25,7 +25,6 @@ const UploadFile = () => {
 
   const handleInputSubmit = (event) => {
     event.preventDefault();
-    console.log(newUpload);
     mutate({ variables: { file: newUpload } });
   };
 

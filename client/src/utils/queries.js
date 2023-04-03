@@ -81,3 +81,28 @@ export const QUERY_CONNECTION = gql`
     }
   }
 `;
+
+export const ALL_BIOS = gql`
+  query getBios {
+    bios {
+      bio
+      userId {
+        username
+        _id
+      }
+      age
+      gender
+      location
+      pictures
+    }
+  }
+`;
+
+export const ALL_PROFILES = gql`
+  query users {
+    users {
+      username
+      _id
+    }
+  }
+`;
