@@ -12,7 +12,8 @@ const ProfileList = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <div>
+    <div id="profilelistpage">
+      <h1 id='banner'> Find New Connections!</h1>
       <AllProfiles bios={bios} />
     </div>
   );

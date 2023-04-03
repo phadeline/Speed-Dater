@@ -51,7 +51,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <div id="usersPicture">
               <img id="propic"
                 className="profilePicture col-lg-12 col-md-12 col-sm-12"
-                src={myBio.pictures[1]}
+                src={myBio.pictures[0]}
                 alt={`${myUser.username}'s profile picture`}
               ></img>
             </div>
