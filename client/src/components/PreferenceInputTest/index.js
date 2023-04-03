@@ -5,7 +5,7 @@ import UploadFile from "../inputTest";
 
 import { useMutation } from "@apollo/client";
 import { ADD_PREFERENCE } from "../../utils/mutations";
-// import Auth from "../../utils/auth";
+
 
 const InitPreferenceForm = () => {
   // set initial form state
@@ -57,7 +57,7 @@ const InitPreferenceForm = () => {
         },
       });
       console.log(data);
-      //   Auth.login(data.addUser.token);
+    
     } catch (err) {
       console.error(err);
     }

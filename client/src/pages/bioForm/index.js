@@ -11,7 +11,6 @@ const InitBioPage = () => {
       <div>
         <h1 className="text-center"> Create your Bio</h1>
         <InitBioForm />
-        {/* <UploadFile /> */}
       </div>
     );
   }

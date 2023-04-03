@@ -15,8 +15,6 @@ const Chat = () => {
     return (
       <div>
         <div className="chatPage">
-          {/* <PartnerInfo />
-    <Chat /> */}
           <div className="actions">
             <button className="btn connectBtn">Connect</button>
             <button className="btn endBtn">End Chat</button>
