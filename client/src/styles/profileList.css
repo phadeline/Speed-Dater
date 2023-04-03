@@ -1,0 +1,26 @@
+.plistPic {
+    width: 8vw;
+    height: 15vh;
+    margin-right: 2vw;
+}
+
+.profileList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userDiv {
+    display: flex;
+    width: 40vw;
+    border: 1px black solid;
+    margin-top: 1vh;
+    padding-top: 2.5vh;
+    padding-left: 1vh;
+    border-radius: 5px;
+}
+
+.userInfo {
+    margin-left: 5vw;
+    overflow:hidden;
+}

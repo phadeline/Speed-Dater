@@ -42,8 +42,8 @@ function Nav() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/profile">
-                  Profile
+                <a className="nav-link" href="/profiles">
+                  Find Users
                 </a>
               </li>
               <li className="nav-item">

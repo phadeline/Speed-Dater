@@ -1,11 +1,9 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import UploadFile from "./components/inputTest/index.js";
 import LandingPage from "./pages/LandingPage";
 // import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Nav from "./components/Nav"
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
 import Chat from "./pages/Chat/index.js";
@@ -16,6 +14,7 @@ import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
 import UploadPicturePage from "./pages/PictureForm/index.js";
 import Nav from "./components/Nav/index.js";
+import ProfileList from "./pages/ProfileList/index.js";
 
 import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
@@ -34,8 +33,6 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
-
-
 
 // Construct our main GraphQL API endpoint
 const httpLink = createUploadLink({
@@ -61,9 +58,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/profiles" element={<ProfileList />} />
             <Route path="/test1" element={<InitBioPage />} />
             <Route path="/test2" element={<InitPreferencePage />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/editbio" element={<EditBio />} />
             <Route path="/editpreference" element={<EditPreference />} />
             <Route
