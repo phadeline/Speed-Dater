@@ -9,11 +9,11 @@ const SignupPage = () => {
     <div>
       <h1 className="text-center"> Signup or Login</h1>
       <div className="d-flex justify-content-center formandImage">
-        <div className="col-lg-4 bothForms col-md-6">
+        <div className="col-lg-5 bothForms col-md-6">
           <LoginForm />
           <SignupForm />
         </div>
-        <div className="col-lg-4 col-md-6 imageContainer">
+        <div className="col-lg-5 col-md-6 imageContainer">
           <img
             src={loginImage}
             alt="dating app photo"
