@@ -27,14 +27,21 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
   return (
     <div className="bigContainer">
       <h2 className="welcome">Welcome To {myUser.username}'s Profile</h2>
+      <div className="addConnect">
+        {!hideButton ? (
+          <button className="connect-btn" onClick={addConHandler}>
+            Add Connection
+          </button>
+        ) : null}
+      </div>
       <div className="biopreferenceContainer">
         <div className="imagepreference col-lg-3 col-md-4 col-sm-12">
           <div className="imagecontainer">
-            <Carousel interval={null}>
+            <Carousel interval={null} className="carousel">
               {myBio.pictures
                 ? myBio.pictures.map((picture, index) => {
                     return (
-                      <Carousel.Item key={index}>
+                      <Carousel.Item className="carouselItem" key={index}>
                         <img
                           className="sliderimgDash"
                           src={picture}
@@ -47,7 +54,7 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
             </Carousel>
           </div>
           <div className="preferences">
-            <h2 className="preferenceTitle">Their Preferences</h2>
+            <h2 className="preferenceTitle">{myUser.username}'s Preferences</h2>
             <h4>Minimum Age: {myPreference.ageMin}</h4>
             <h4>Maximum Age: {myPreference.ageMax}</h4>
             <h4>Sex Orientation: {myPreference.sexOrientation}</h4>
@@ -55,7 +62,7 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
             <h4>Location: {myPreference.location}</h4>
           </div>
         </div>
-        <div className="biosection col-lg-8 col-md-8 col-sm-12">
+        <div className="biosection col-lg-8 col-md-7 col-sm-12">
           <h2 className="bioTitle"> {myUser.username}'s Bio</h2>
           <div className="section col-md-12 col-sm-12">
             <h3 className="col-lg-3 col-md-12 col-sm-12 sectionTitle">
@@ -96,11 +103,6 @@ const MyProfile = ({ myUser, myBio, myPreference }) => {
             </h3>
           </div>
         </div>
-        {!hideButton ? (
-          <button className="connect-btn" onClick={addConHandler}>
-            Add Connection
-          </button>
-        ) : null}
       </div>
     </div>
   );
