@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import EditPreferenceForm from "../../components/editPreference";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 import auth from "../../utils/auth";
+import "../../styles/bioform.css";
 
 const EditPreference = () => {
   const { loading: preferenceLoading, data: preferenceData } = useQuery(QUERY_PREFERENCE);
@@ -19,7 +20,7 @@ const EditPreference = () => {
       <div>
       
 
-        <h1> Edit Your Preferences</h1>
+        <h1 className="editHeading"> Edit Your Preferences</h1>
        
         <div>
           <EditPreferenceForm myPreference={myPreference} />
