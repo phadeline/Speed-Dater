@@ -2,12 +2,12 @@
 h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.dashpage {
+/* .dashpage {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
+  } */
 
   #dashwelcome {
     width: 100%;
@@ -18,8 +18,32 @@ h3{
     text-indent: 20px;
     
   }
+
+  #first {
+    border-right: solid lightgrey 1px;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  #propic{
+    align-self: center;
+    height: 270px;
+  }
+
+  #second{
+    /* align-items: center; */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+  }
+  #shell {
+    flex-wrap: wrap;
+  }
   
-  #case {
+  /* #case {
     display: flex;
     width: 100%;
     margin-top: 10px;
@@ -27,12 +51,12 @@ h3{
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-  }
+  } */
   
   #profileSnip {
-    display: flex;
-    width: 18%;
-    height: 600px;
+    /* display: flex; */
+    /* width: 18%; */
+    /* height: 600px; */
     /* border-left: solid lightgrey .1px; */
     /* border-right: solid lightgrey .1px; */
     /* border-radius: 13%; */
@@ -73,33 +97,33 @@ h3{
   
   
   #bioSnip {
-    display: flex;
-    width: 50%;
-    height: 600px;
+    /* display: flex; */
+    /* width: 50%; */
+    /* height: 600px; */
     /* border-right: solid lightgrey 1px; */
-    border-left: solid lightgrey 1px;
-    padding-left: 150px;
+    /* border-left: solid lightgrey 1px; */
+    /* padding-left: 150px; */
     /* border-radius: 13%; */
-    flex-direction: column;
-    align-content:  center;
-    margin-right: 50px;
+    /* flex-direction: column; */
+    /* align-content:  center; */
+    /* margin-right: 50px; */
   }
   
-  #dashbioContent {
-    align-items: center;
-    text-align: center;
-    width: 100%
+  /* #dashbioContent { */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* width: 100% */
     /* margin-left: 2vw; */
   
-  }
+  /* } */
   
-  #bioSnip h3 {
+  /* #bioSnip h3 {
   justify-self: center;
   display:flex;
     width: 380px;
     border-bottom: solid lightgrey 1px;
     text-align: center;
-  }
+  } */
   #bioSnip h4 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
@@ -203,4 +227,8 @@ h3{
     padding-right: 2vw;
     border-radius: 15px;
     align-items: center;
+  }
+
+  .dashpage {
+    justify-content: flex-start;
   }
