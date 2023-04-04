@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Carousel, Button, Row, Col, Card, Figure } from "react-bootstrap";
+import { Container, Carousel, Button, Row, Col, Card } from "react-bootstrap";
 import "../../styles/dashboard.css";
 import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
@@ -99,7 +99,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
           </div>
           <div>
           {!upload ? (
-            <Button className="btn" id='imgBtn' onClick={handleUpload}>
+            <Button className="btn" size="sm" id='imgBtn' onClick={handleUpload}>
               Add Pictures
             </Button>
           ) : (
@@ -121,9 +121,9 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
               );
             })}
         </section>
-        <div>
+        {/* <div id="connectsList"> */}
           <h3> Your Connections</h3>
-        </div>
+        
         <div id="dashFriends">
           {myUser.connections &&
             myUser.connections.map((connection) => {
@@ -132,13 +132,23 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                   <a href={`/profile/${connection._id}`}>
                     {connection.username}
                   </a>
-                  <button
+                  <Button variant="secondary" size="sm" active id="removeBtn"
+                    value={connection._id}
+                    onClick={() => deleteConHandler(connection._id)}>
+        Remove
+      </Button>
+
+
+
+
+                  {/* <button id="removeBtn"
                     value={connection._id}
                     onClick={() => deleteConHandler(connection._id)}
                   >
-                    Remove Friend
-                  </button>
+                    Remove
+                  </button> */}
                 </div>
+                
      
                      );
                    })}
