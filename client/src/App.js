@@ -1,7 +1,7 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import LandingPage from "./pages/LandingPage";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
 import Chat from "./pages/Chat/index.js";
@@ -14,9 +14,7 @@ import UploadPicturePage from "./pages/PictureForm/index.js";
 import Nav from "./components/Nav/index.js";
 import ProfileList from "./pages/ProfileList/index.js";
 
-import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
-import { InvalidTokenError } from "jwt-decode";
 import EditPreference from "./pages/EditPreferenceForm/index.js";
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header.
@@ -51,7 +49,7 @@ function App() {
         <>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<SignupForm />} />
+            <Route path="/login" component={<SignupForm />} />
             <Route path="/test" element={<UploadPicturePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
