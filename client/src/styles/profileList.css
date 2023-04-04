@@ -1,6 +1,8 @@
 #profilelistpage{
   background-color: rgba(190, 195, 196, 0.473);
     height: 100%;
+  display:flex;
+  flex-direction: column;
 }
 
 
