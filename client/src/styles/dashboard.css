@@ -75,12 +75,10 @@ h3{
 
   #third{
     align-content: center;
-    /* align-items: center; */
     justify-content: center;
-    /* text-align: center; */
     align-items: center;
     justify-items: center;
-    max-width: 30vw;
+    width: 25vw !important;
   }
 
 
@@ -156,11 +154,10 @@ h3{
     background-color: rgb(247, 247, 243);
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     align-content: center;
     text-align: center;
     justify-content: center;
-    /* align-items: center; */
+    max-width: 25vw;
   }
   
   #connectionList {
@@ -184,6 +181,7 @@ h3{
 
   #mydashfriends {
     display:flex;
+    width:30vh;
     height: 35vh;
     flex-direction: column;
     align-items: center;
