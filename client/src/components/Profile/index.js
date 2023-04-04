@@ -7,9 +7,6 @@ import { useParams } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 
 const MyProfile = ({ myUser, myBio, myPreference }) => {
-  // if (!myUser.length) {
-  //   return <h2>Create Your Profile</h2>;
-  // }
   const userId = useParams().id;
   const [addConnection] = useMutation(ADD_CONNECTION);
   const [hideButton, setHideButton] = useState(false);

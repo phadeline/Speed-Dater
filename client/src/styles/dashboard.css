@@ -4,12 +4,6 @@
 }
 
 
-/* rgba(240, 213, 228, 0.932) */
-
-/* background-color: rgb(196, 151, 190); */
-
-/* rgba(255, 192, 203, 0.709) */
-
 h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -17,12 +11,9 @@ h3{
 
   #dashwelcome {
     width: 100%;
-    /* margin-left: 20px; */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgba(46, 94, 126, 0.884);
     color: rgb(247, 248, 206);
- 
-    /* text-indent: 20px; */
     font-size: 32px;
     text-align: center;
     
@@ -64,7 +55,6 @@ h3{
   }
 
   #second{
-    /* align-items: center; */
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -105,11 +95,8 @@ h3{
     display: flex;
     height: 280px;
     width: 190px;
-    /* border: solid lightgrey 1px; */
     border-radius: 50%;
-    /* margin-bottom: 5px; */
     align-self: center;
-    /* justify-self: flex-start; */
   }
   
   #usersPicture img{
@@ -122,7 +109,6 @@ h3{
     border: 0;
     text-align: center;
     font-size: 13px;
-    /* color: darkgrey; */
     font-style: italic;
   }
   
@@ -249,7 +235,7 @@ h3{
     font-size: 15px;
   }
   
-  
+
   .imgUpload{
     display: flex;
     flex-direction: column;

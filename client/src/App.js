@@ -1,6 +1,7 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import LandingPage from "./pages/LandingPage";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
