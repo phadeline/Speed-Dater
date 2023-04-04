@@ -24,7 +24,6 @@ const EditBio = () => {
 
         <div>
           <EditBioForm myBio={myBio} />
-          {/* } */}
         </div>
       </div>
     );
