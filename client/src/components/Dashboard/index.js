@@ -14,7 +14,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
   const deleteConHandler = async (userId) => {
     try {
       const { data } = deleteConnection({ variables: { userId: userId } }).then(
-        () => navigate(0)
+        () => navigate("/dashboard")
       );
     } catch (err) {
       console.error(err);
