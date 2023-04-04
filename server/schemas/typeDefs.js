@@ -71,7 +71,7 @@ const typeDefs = gql`
     deleteConnection(userId: ID!): User
 
     addBio(
-      interests: String!
+      interests: [String]!
       bio: String!
       age: Int!
       gender: String!
@@ -80,7 +80,7 @@ const typeDefs = gql`
     ): Bio
 
     updateBio(
-      interests: String
+      interests: [String]
       bio: String
       location: String
       age: Int
