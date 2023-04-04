@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ACCEPT_CONNECTION, DELETE_REQUEST } from "../../utils/mutations";
 import { Button, Card } from "react-bootstrap";
 import "../../styles/dashboard.css";
+import { Link } from "react-router-dom";
 
 function ConnectionRequest(props) {
   const [acceptConnection] = useMutation(ACCEPT_CONNECTION);
@@ -27,13 +28,23 @@ function ConnectionRequest(props) {
   };
   return (
     <div key={props._id} className="requestCard">
-      <a id="reqFri" href={`/profile/${props._id}`}>
+      <Link id="reqFri" to={`/profile/${props._id}`}>
         {props.username}
-      </a>
-      <Button variant="success" size="sm" className="acceptBtn" onClick={() => acceptConHandler(props._id)}>
+      </Link>
+      <Button
+        variant="success"
+        size="sm"
+        className="acceptBtn"
+        onClick={() => acceptConHandler(props._id)}
+      >
         Accept
       </Button>
-      <Button size="sm" variant="danger" className="rejectBtn" onClick={() => deleteReqHandler(props._id)}>
+      <Button
+        size="sm"
+        variant="danger"
+        className="rejectBtn"
+        onClick={() => deleteReqHandler(props._id)}
+      >
         Delete
       </Button>
     </div>
