@@ -27,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("/", (req, res) => {
+  //So you can refresh page
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
