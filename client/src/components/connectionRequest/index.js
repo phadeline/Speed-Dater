@@ -3,16 +3,17 @@ import { useMutation } from "@apollo/client";
 import { ACCEPT_CONNECTION, DELETE_REQUEST } from "../../utils/mutations";
 import { Button, Card } from "react-bootstrap";
 import "../../styles/dashboard.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ConnectionRequest(props) {
+  const navigate = useNavigate();
   const [acceptConnection] = useMutation(ACCEPT_CONNECTION);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
   const deleteReqHandler = async (userId) => {
     try {
       const { data } = await deleteRequest({
         variables: { userId: userId },
-      }).then(() => window.location.reload());
+      }).then(() => navigate(0));
     } catch (err) {
       console.error(err);
     }
@@ -21,7 +22,7 @@ function ConnectionRequest(props) {
     try {
       const { data } = await acceptConnection({
         variables: { userId: userId },
-      }).then(() => window.location.reload());
+      }).then(() => navigate(0));
     } catch (err) {
       console.error(err);
     }

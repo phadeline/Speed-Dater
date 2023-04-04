@@ -5,15 +5,16 @@ import { DELETE_CONNECTION } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import ConnectionRequest from "../connectionRequest";
 import UploadFile from "../inputTest";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DashboardComponent = ({ myUser, myBio, myPreference }) => {
+  const navigate = useNavigate();
   const [deleteConnection] = useMutation(DELETE_CONNECTION);
   const [upload, setUpload] = useState(false);
   const deleteConHandler = async (userId) => {
     try {
       const { data } = deleteConnection({ variables: { userId: userId } }).then(
-        () => window.location.reload()
+        () => navigate(0)
       );
     } catch (err) {
       console.error(err);
