@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/signupLogin.css";
+import { useNavigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import auth from "../../utils/auth";
 
 const SignupForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
@@ -58,7 +60,7 @@ const SignupForm = () => {
       email: "",
       password: "",
     });
-    window.location.href = "/newbio";
+    navigate("/newbio", { replace: true });
   };
 
   return (
