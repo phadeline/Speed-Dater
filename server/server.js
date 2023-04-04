@@ -1,18 +1,24 @@
+//import express
 const express = require("express");
+//imports dotenv to protect sensitive connection info
 require("dotenv").config();
+//imports apollo server for routing
 const { ApolloServer } = require("apollo-server-express");
+//imports graphql upload routing tools
 const {
   GraphQLUpload,
   graphqlUploadExpress,
 } = require("graphql-upload-minimal");
 const path = require("path");
+//imports auth middleware
 const { authMiddleware } = require("./utils/Auth");
-
 const { typeDefs, resolvers } = require("./schemas");
+//imports connection to database
 const db = require("./config/connection");
-
+//sets port to listen locally at 3001
 const PORT = process.env.PORT || 3001;
 const app = express();
+//establishes apolloserver to use the defined typedefs, resolvers, and auth middleware
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -36,6 +42,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   app.use(graphqlUploadExpress());
   server.applyMiddleware({ app });
 
+  //opens connection to db and port
   db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
