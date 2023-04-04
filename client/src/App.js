@@ -59,8 +59,8 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/profiles" element={<ProfileList />} />
-            <Route path="/test1" element={<InitBioPage />} />
-            <Route path="/test2" element={<InitPreferencePage />} />
+            <Route path="/newbio" element={<InitBioPage />} />
+            <Route path="/newpref" element={<InitPreferencePage />} />
             <Route path="/editbio" element={<EditBio />} />
             <Route path="/editpreference" element={<EditPreference />} />
             <Route
