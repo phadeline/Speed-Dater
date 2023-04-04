@@ -120,52 +120,42 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             </Card.Header>
             {/* <section id="connectionList"> */}
             <h3>Connection Requests</h3>
-              <section id="connectionRequest">
-                
-                {myUser.connectRequest &&
-                  myUser.connectRequest.map((user) => {
-                    return (
-                      <ConnectionRequest
-                        _id={user._id}
-                        username={user.username}
-                      />
-                    );
-                  })}
-                 
-              </section>
-              {/* <div id="connectsList"> */}
+            <section id="connectionRequest">
+              {myUser.connectRequest &&
+                myUser.connectRequest.map((user) => {
+                  return (
+                    <ConnectionRequest
+                      _id={user._id}
+                      username={user.username}
+                    />
+                  );
+                })}
+            </section>
+            <h3> Your Connections</h3>
+            <div id="mydashfriends">
+              {myUser.connections &&
+                myUser.connections.map((connection) => {
+                  return (
+                    <div key={connection._id} className="eachfriend">
+                      <Link to={`/profile/${connection._id}`}>
+                        {connection.username}
+                      </Link>
 
-              <h3> Your Connections</h3>
-              <div id="mydashfriends">
-              
-
-
-
-              {/* <div id="dashFriends"> */}
-             
-                {myUser.connections &&
-                  myUser.connections.map((connection) => {
-                    return (
-                      <div key={connection._id} className="eachfriend">
-                        <Link to={`/profile/${connection._id}`}>
-                          {connection.username}
-                        </Link>
-                        
-                        <Button
-                          variant="secondary"
-                          size="sm"
-                          active
-                          id="removeBtn"
-                          value={connection._id}
-                          onClick={() => deleteConHandler(connection._id)}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    );
-                  })}
-                  </div>
-              {/* </div> */}
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        active
+                        id="removeBtn"
+                        value={connection._id}
+                        onClick={() => deleteConHandler(connection._id)}
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  );
+                })}
+            </div>
+            {/* </div> */}
             {/* </section> */}
           </Card>
         </Col>
