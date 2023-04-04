@@ -2,9 +2,10 @@ import React from "react";
 import auth from "../../utils/auth";
 import "../../styles/nav.css";
 import logo from "../../image/logo.png";
+import { Link } from "react-router-dom";
 
 //function to create the nav bar
-function Nav() {
+function Navigation() {
   function userLogout() {
     auth.logout();
   }
@@ -12,11 +13,11 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid ">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <div className="icon">
             <img className="logo" src={logo} alt="logo" />
           </div>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -32,47 +33,47 @@ function Nav() {
           <div>
             <ul className="navbar-nav ">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/dashboard">
+                <Link className="nav-link" to="/dashboard">
                   Dashboard
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/profiles">
+                <Link className="nav-link" to="/profiles">
                   Find Users
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/chat">
+                <Link className="nav-link" to="/chat">
                   Chat
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/editbio">
+                <Link className="nav-link" to="/editbio">
                   Edit Bio
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="/editpreference">
+                <Link className="nav-link" to="/editpreference">
                   Edit Preferences
-                </a>
+                </Link>
               </li>
               {auth.loggedIn() ? (
                 <li className="nav-item">
-                  <a className="nav-link" onClick={userLogout}>
+                  <Link className="nav-link" onClick={userLogout}>
                     Logout
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">
+                  <Link className="nav-link" to="/login">
                     Login
-                  </a>
+                  </Link>
                 </li>
               )}
             </ul>
@@ -84,4 +85,4 @@ function Nav() {
 }
 
 //exports the nav generating function
-export default Nav;
+export default Navigation;

@@ -11,7 +11,7 @@ import InitBioPage from "./pages/bioForm/index.js";
 import InitPreferencePage from "./pages/PreferenceTest/index.js";
 import EditBio from "./pages/EditBio/index.js";
 import UploadPicturePage from "./pages/PictureForm/index.js";
-import Nav from "./components/Nav/index.js";
+import Navigation from "./components/Nav/index.js";
 import ProfileList from "./pages/ProfileList/index.js";
 
 import { setContext } from "@apollo/client/link/context";
@@ -46,7 +46,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Nav />
+          <Navigation />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<SignupForm />} />
