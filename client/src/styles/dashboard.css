@@ -181,7 +181,7 @@ h3{
 
   #mydashfriends {
     display:flex;
-    width:25vw;
+    width:inherit;
     height: 35vh;
     flex-direction: column;
     align-items: center;
