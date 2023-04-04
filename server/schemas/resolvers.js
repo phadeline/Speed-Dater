@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Bio, Preference } = require("../models");
-const { signToken } = require("../utils/auth");
+const { signToken } = require("../utils/Auth");
 const s3 = require("../config/s3config");
 const { GraphQLUpload } = require("graphql-upload-minimal");
 
