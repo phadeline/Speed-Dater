@@ -50,7 +50,7 @@ function App() {
       <Router>
         <>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<SignupForm />} />
             <Route path="/login" element={<SignupForm />} />
             <Route path="/test" element={<UploadPicturePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
