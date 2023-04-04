@@ -5,8 +5,6 @@ const bioSchema = new Schema({
     {
       type: String,
       required: true,
-      minlength: 1,
-      maxlength: 20,
     },
   ],
   bio: {

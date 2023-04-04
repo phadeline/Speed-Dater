@@ -3,11 +3,14 @@ import auth from "../../utils/auth";
 import "../../styles/nav.css";
 import logo from "../../image/logo.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //function to create the nav bar
 function Navigation() {
+  const navigate = useNavigate();
   function userLogout() {
     auth.logout();
+    navigate("/login");
   }
   //returns navbar
   return (
