@@ -22,6 +22,9 @@ const Dashboard = () => {
   if (!auth.loggedIn()) {
     navigate("/login");
   } else {
+    if (!myBio || !myPreference || !myUser) {
+      return <h1>Please Update Your Bio and Preferences</h1>;
+    }
     if (bioLoading || preferenceLoading || userLoading) {
       return <div> Loading...</div>;
     }
