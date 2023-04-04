@@ -13,6 +13,7 @@ import EditBio from "./pages/EditBio/index.js";
 import UploadPicturePage from "./pages/PictureForm/index.js";
 import Navigation from "./components/Nav/index.js";
 import ProfileList from "./pages/ProfileList/index.js";
+import Footer from "./components/Footer";
 
 import { setContext } from "@apollo/client/link/context";
 import EditPreference from "./pages/EditPreferenceForm/index.js";
@@ -66,6 +67,7 @@ function App() {
           </Routes>
         </>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
