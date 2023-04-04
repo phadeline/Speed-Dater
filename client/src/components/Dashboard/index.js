@@ -118,9 +118,10 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
             <Card.Header as="h5" id="connectTitle">
               Connections
             </Card.Header>
-            <section id="connectionList">
+            {/* <section id="connectionList"> */}
+            <h3>Connection Requests</h3>
               <section id="connectionRequest">
-                <h3>Connection Requests</h3>
+                
                 {myUser.connectRequest &&
                   myUser.connectRequest.map((user) => {
                     return (
@@ -130,11 +131,18 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                       />
                     );
                   })}
+                 
               </section>
               {/* <div id="connectsList"> */}
-              <h3> Your Connections</h3>
 
-              <div id="dashFriends">
+              <h3> Your Connections</h3>
+              <div id="mydashfriends">
+              
+
+
+
+              {/* <div id="dashFriends"> */}
+             
                 {myUser.connections &&
                   myUser.connections.map((connection) => {
                     return (
@@ -142,6 +150,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                         <Link to={`/profile/${connection._id}`}>
                           {connection.username}
                         </Link>
+                        
                         <Button
                           variant="secondary"
                           size="sm"
@@ -155,8 +164,9 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
                       </div>
                     );
                   })}
-              </div>
-            </section>
+                  </div>
+              {/* </div> */}
+            {/* </section> */}
           </Card>
         </Col>
       </Row>

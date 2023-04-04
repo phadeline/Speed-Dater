@@ -72,6 +72,16 @@ h3{
 
 
 
+  #third{
+    align-content: center;
+    /* align-items: center; */
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    justify-items: center;
+  }
+
+
   #shell {
     flex-wrap: wrap;
   }
@@ -141,7 +151,14 @@ h3{
   
   #card3{
     border: solid grey 1px;
-    background-color: rgb(247, 247, 243);;
+    background-color: rgb(247, 247, 243);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    /* align-items: center; */
   }
   
   #connectionList {
@@ -151,22 +168,37 @@ h3{
     border-left: solid lightgrey 1px;
     flex-direction: column;
     align-content: center;
+    text-align: center;
+    justify-content: center;
   }
   
   #connectionList h3{
+    display: flex;
+    text-indent: 5px;
     margin-left:10px;
     width: 300px;
     text-align: center;
   }
-  
-  #dashFriends {
-    display: flex;
-    float:right;
-    width: 22vw;
-    margin-left: 2vw;
+
+  #mydashfriends {
+    display:flex;
+    height: 35vh;
     flex-direction: column;
     align-items: center;
-    align-content: center;
+    overflow-y: scroll;
+  }
+
+  
+  #dashFriends {
+
+    text-align: center;
+  
+    width: 14vw;
+    margin-left: 1vw;
+    flex-direction: column;
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: center;
     height: 20vh;
     overflow-y: scroll;
   }
@@ -180,6 +212,11 @@ h3{
   #connectionRequest {
     margin-top: 1vh;
     height: 19vh;
+    width:inherit;
+    justify-content: center;
+    align-content: center;
+
+    
   }
   
   .sliderimgDash{
@@ -260,24 +297,28 @@ h3{
 }
 
   #dashFriends {
+    display: flex;
     align-items: center;
   
   }
 
   .eachfriend a {
-    width: 200px;
-    align-content: center;
+    width: 20vw;
+    /* align-content: center; */
     text-align: center;
     color: black;
     margin-right: 2vh;
     font-size: 18px;
+    text-indent: 20px;
   }
 
   .eachfriend {
-    
+    width: 30vw;
     flex-direction: column;
     text-align: center;
     margin-bottom: 1vh;
+    margin-left: 5vw;
+    float:left;
   }
 
   #removeBtn {
@@ -296,7 +337,6 @@ background-color:  rgba(46, 94, 126, 0.884);
 
 .requestCard {
   flex-direction: row;
-  width: 300px;
   margin-bottom: .5vh;
   text-align: center;
 }
