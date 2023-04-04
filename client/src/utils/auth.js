@@ -1,8 +1,6 @@
-
-import decode, { InvalidTokenError } from 'jwt-decode';
+import decode, { InvalidTokenError } from "jwt-decode";
 
 class Auth {
-  
   getProfile() {
     return decode(this.getToken());
   }
@@ -11,7 +9,7 @@ class Auth {
   loggedIn() {
     // Checks if there is a saved token and it's still valid
     const token = this.getToken();
-    
+
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
@@ -29,27 +27,25 @@ class Auth {
 
   getToken() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
+    return localStorage.getItem("id_token");
   }
 
   login(idToken) {
     // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
-    window.location.assign('/dashboard');
+    localStorage.setItem("id_token", idToken);
   }
- 
-  checkAuth() {
-    if (this.token = InvalidTokenError){
-      window.location.assign('/login');
-    }
-  return InvalidTokenError ? true : false;
-  }
+
+  // checkAuth() {
+  //   if (this.token = InvalidTokenError){
+  //     window.location.assign('/login');
+  //   }
+  // return InvalidTokenError ? true : false;
+  // }
 
   logout() {
     // Clear user token and profile data from localStorage
-    localStorage.removeItem('id_token');
+    localStorage.removeItem("id_token");
     // this will reload the page and reset the state of the application
-    window.location.assign('/login');
   }
 }
 let auth = new Auth();

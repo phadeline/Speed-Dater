@@ -1,5 +1,5 @@
 #profilelistpage{
-    background-color: rgb(228, 200, 224);
+  background-color: rgba(190, 195, 196, 0.473);
     height: 100%;
       
 }
@@ -7,15 +7,18 @@
 #banner {
     width: 100%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(158, 126, 142);
+    /* background-color: rgb(158, 126, 142);*/
+    background-color: rgba(46, 94, 126, 0.884);
     color: rgb(247, 248, 206);
     text-indent: 20px;
     font-size: 32px;
+    text-align: center;
   }
 
   #cardHead{
-    height: 40px;
-    background-color:rgba(255, 192, 203, 0.709);
+    height: 45px;
+    /* background-color:rgba(255, 192, 203, 0.709); */
+    background-color:rgba(66, 137, 184, 0.781);
     color: black;
   }
 
@@ -25,11 +28,11 @@
     font-size: 18px;
   }
   #cardHead a:hover {
-    color: purple;
+    color: rgba(44, 2, 215, 0.867);
   }
 
   h4:hover{
-color: purple;
+color: rgba(44, 2, 215, 0.867);
   }
 
 
@@ -45,8 +48,8 @@ color: purple;
 .plistPic {
     margin-left: 5px;
     margin-top: 5px;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin-right: 2vw;
     margin-bottom: 5px;
     float: left;
@@ -61,8 +64,8 @@ color: purple;
 #userCard {
     width: 600px;
     margin-bottom: 20px;
-    border: solid grey 1px;
-    background-color: rgb(247, 248, 206);
+    border: solid grey 2px;
+    background-color: rgb(247, 247, 243);
 }
 
 .profileList {

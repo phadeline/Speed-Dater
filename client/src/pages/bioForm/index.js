@@ -1,11 +1,12 @@
 import React from "react";
 import InitBioForm from "../../components/BioInputTest";
-import UploadFile from "../../components/inputTest";
 import auth from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 const InitBioPage = () => {
+  const navigate = useNavigate();
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    navigate("/login");
   } else {
     return (
       <div>

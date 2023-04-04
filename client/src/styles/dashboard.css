@@ -1,6 +1,8 @@
 .dashpage{
-  background-color: rgb(228, 200, 224);
+  background-color: rgba(190, 195, 196, 0.473);
+  /* max-width:max-content; */
 }
+
 
 h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -10,10 +12,10 @@ h3{
   #dashwelcome {
     width: 100%;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(158, 126, 142);
+    background-color: rgba(46, 94, 126, 0.884);
     color: rgb(247, 248, 206);
-    text-indent: 20px;
     font-size: 32px;
+    text-align: center;
     
   }
 
@@ -27,16 +29,22 @@ h3{
 
 #card1 {
   border: solid grey 1px;
-  background-color: rgb(247, 248, 206);
+  background-color: rgb(247, 247, 243);
+  margin-bottom: .5vh;
 }
 
   #head1 {
-    background-color:rgba(255, 192, 203, 0.709);
+    background-color:rgba(66, 137, 184, 0.781);
   }
   
 
   #head2 {
-    background-color:rgba(255, 192, 203, 0.709);
+    background-color:rgba(66, 137, 184, 0.781);
+  }
+
+  #connectTitle {
+    text-align: center;
+    background-color:rgba(66, 137, 184, 0.781);
   }
 
  
@@ -55,13 +63,21 @@ h3{
 
 
 
+  #third{
+    align-content: center;
+    /* align-items: center; */
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    justify-items: center;
+    max-width: 30vw;
+  }
+
+
   #shell {
     flex-wrap: wrap;
   }
-  #connectTitle {
-    text-align: center;
-    background-color:rgba(255, 192, 203, 0.709);
-  }
+ 
   
  
   
@@ -98,7 +114,7 @@ h3{
   
  #card2 {
   border: solid grey 1px;
-  background-color: rgb(247, 248, 206);
+  background-color: rgb(247, 247, 243);
  } 
  
   #bioSnip h4 {
@@ -108,37 +124,71 @@ h3{
   }
 
   #imgBtn {
-    background-color: rgb(151, 127, 127);
-    border: rgb(31, 30, 30) solid 1px;
+    border: solid black 1px;
+    background-color:  rgba(46, 94, 126, 0.884);
+    /* background-color: rgb(110, 93, 93); */
     margin-bottom: 20px;
     margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  #imgBtn:hover {
+    background-color: lightgray;
+    color: rgb(87, 84, 84);
+  }
   
   #card3{
     border: solid grey 1px;
-    background-color: rgb(247, 248, 206);
+    background-color: rgb(247, 247, 243);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    /* align-items: center; */
   }
   
   #connectionList {
     display: flex;
-    width: 18%;
+    width: 8vw;
     height: 60vh;
     border-left: solid lightgrey 1px;
     flex-direction: column;
     align-content: center;
+    text-align: center;
+    justify-content: center;
   }
   
   #connectionList h3{
+    display: flex;
+    text-indent: 5px;
     margin-left:10px;
     width: 300px;
     text-align: center;
   }
+
+  #mydashfriends {
+    display:flex;
+    height: 35vh;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+  }
+
   
   #dashFriends {
-    width: 16vw;
+
+    text-align: center;
+  
+    width: 14vw;
+    margin-left: 1vw;
+    flex-direction: column;
+    /* align-items: center; */
+    /* align-content: center; */
     justify-content: center;
-    margin-left: 20px;
+    height: 20vh;
+    overflow-y: scroll;
   }
   
   .sliderimg {
@@ -150,6 +200,11 @@ h3{
   #connectionRequest {
     margin-top: 1vh;
     height: 19vh;
+    width:inherit;
+    justify-content: center;
+    align-content: center;
+
+    
   }
   
   .sliderimgDash{
@@ -180,6 +235,7 @@ h3{
     font-size: 15px;
   }
   
+
   .imgUpload{
     display: flex;
     flex-direction: column;
@@ -211,4 +267,80 @@ h3{
 
   .dashpage {
     justify-content: flex-start;
+  }
+
+  #connectLists {
+    overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+#connectionRequest{
+  align-content: center;
+  height: 25vh;
+  width: 350px;
+  overflow-y: scroll;
+}
+
+  #dashFriends {
+    display: flex;
+    align-items: center;
+  
+  }
+
+  .eachfriend a {
+    width: 20vw;
+    /* align-content: center; */
+    text-align: center;
+    color: black;
+    margin-right: 2vh;
+    font-size: 18px;
+    text-indent: 20px;
+  }
+
+  .eachfriend {
+    width: 30vw;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1vh;
+    margin-left: 5vw;
+    float:left;
+  }
+
+  #removeBtn {
+    text-align: center;
+float: right;
+padding: 3px;
+border: solid black 1px;
+/* background-color: rgb(110, 93, 93); */
+background-color:  rgba(46, 94, 126, 0.884);
+  }
+
+  #removeBtn:hover {
+    background-color: lightgray;
+    color: rgb(87, 84, 84);
+  }
+
+.requestCard {
+  flex-direction: row;
+  margin-bottom: .5vh;
+  text-align: center;
+}
+
+  .requestCard a {
+    font-size: 18px;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+  
+  }
+
+  #reqFri {
+    color: black;
+  }
+
+  .acceptBtn{
+    margin-right: 3px;
   }

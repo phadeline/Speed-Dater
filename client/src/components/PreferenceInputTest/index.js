@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/preferenceForm.css";
 import UploadFile from "../inputTest";
-
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_PREFERENCE } from "../../utils/mutations";
 
 
 const InitPreferenceForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     ageMin: "",
@@ -69,19 +70,17 @@ const InitPreferenceForm = () => {
       gender: "",
       location: "",
     });
-    window.location.assign("/dashboard");
+    navigate("/dashboard");
   };
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
       <Form
         className="col-lg-6 col-md-6 col-sm-12 preferenceForm"
         noValidate
         validated={validated}
         onSubmit={handlePreferenceForm}
       >
-        {/* show alert if server response is bad */}
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/bioform.css";
-
+import { useNavigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_BIO } from "../../utils/mutations";
 
-
 const InitBioForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     interests: "",
@@ -57,7 +57,6 @@ const InitBioForm = () => {
         },
       });
       console.log(data);
-    
     } catch (err) {
       console.error(err);
     }
@@ -71,19 +70,17 @@ const InitBioForm = () => {
       pictures: "",
     });
 
-    window.location.assign("/test2");
+    navigate("/newpref");
   };
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
       <Form
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
         className="col-lg-6 col-md-6 col-sm-12 bioForm"
       >
-        {/* show alert if server response is bad */}
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -177,7 +174,6 @@ const InitBioForm = () => {
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
-        
 
         <Button
           disabled={

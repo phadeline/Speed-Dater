@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import "../../styles/signupLogin.css";
 
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations';
-import "../../styles/signupLogin.css"
-
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -40,23 +41,27 @@ const LoginForm = () => {
       const { data } = await login({
         variables: { ...userFormData },
       });
-
-      console.log(data);
       Auth.login(data.login.token);
+      navigate("/dashboard");
     } catch (e) {
       console.error(e);
     }
 
    
     setUserFormData({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
   return (
     <div className="login">
-      <Form noValidate validated={validated} className="loginForm" onSubmit={handleFormSubmit}>
+      <Form
+        noValidate
+        validated={validated}
+        className="loginForm"
+        onSubmit={handleFormSubmit}
+      >
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -67,7 +72,9 @@ const LoginForm = () => {
         </Alert>
         <h2 className="text-center">Login!</h2>
         <Form.Group>
-          <Form.Label className="formText" htmlFor="email">Email</Form.Label>
+          <Form.Label className="formText" htmlFor="email">
+            Email
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
@@ -83,7 +90,9 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password" className="formText">Password</Form.Label>
+          <Form.Label htmlFor="password" className="formText">
+            Password
+          </Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
