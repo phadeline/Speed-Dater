@@ -1,7 +1,7 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import LandingPage from "./pages/LandingPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
 import Chat from "./pages/Chat/index.js";
@@ -50,7 +50,7 @@ function App() {
       <Router>
         <>
           <Routes>
-            <Route path="/" element={<SignupForm />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<SignupForm />} />
             <Route path="/test" element={<UploadPicturePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
