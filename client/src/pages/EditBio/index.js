@@ -5,6 +5,7 @@ import { QUERY_BIO } from "../../utils/queries";
 import auth from "../../utils/auth";
 import "../../styles/bioform.css";
 import { useNavigate } from "react-router-dom";
+import SignupPage from "../SignupPage";
 
 const EditBio = () => {
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
@@ -14,6 +15,7 @@ const EditBio = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     if (bioLoading) {
       return <div> Loading...</div>;
@@ -24,7 +26,6 @@ const EditBio = () => {
 
         <div>
           <EditBioForm myBio={myBio} />
-          {/* } */}
         </div>
       </div>
     );

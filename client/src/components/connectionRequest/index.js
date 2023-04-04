@@ -13,7 +13,7 @@ function ConnectionRequest(props) {
     try {
       const { data } = await deleteRequest({
         variables: { userId: userId },
-      }).then(() => navigate("/dashboard"));
+      }).then(() => navigate(0));
     } catch (err) {
       console.error(err);
     }
@@ -22,7 +22,7 @@ function ConnectionRequest(props) {
     try {
       const { data } = await acceptConnection({
         variables: { userId: userId },
-      }).then(() => navigate("/dashboard"));
+      }).then(() => navigate(0));
     } catch (err) {
       console.error(err);
     }

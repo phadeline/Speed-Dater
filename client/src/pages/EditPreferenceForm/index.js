@@ -5,6 +5,7 @@ import { QUERY_PREFERENCE } from "../../utils/queries";
 import auth from "../../utils/auth";
 import "../../styles/bioform.css";
 import { useNavigate } from "react-router-dom";
+import SignupPage from "../SignupPage";
 
 const EditPreference = () => {
   const { loading: preferenceLoading, data: preferenceData } =
@@ -15,6 +16,7 @@ const EditPreference = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     if (preferenceLoading) {
       return <div> Loading...</div>;

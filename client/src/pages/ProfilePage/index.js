@@ -4,6 +4,7 @@ import MyProfile from "../../components/Profile";
 import { useParams } from "react-router-dom";
 import auth from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
+import SignupPage from "../SignupPage";
 
 import {
   CONNECTION_BIO,
@@ -33,6 +34,7 @@ const Profile = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     if (bioLoading || preferenceLoading || userLoading) {
       return <div> Loading...</div>;

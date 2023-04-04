@@ -75,14 +75,12 @@ const InitPreferenceForm = () => {
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
       <Form
         className="col-lg-6 col-md-6 col-sm-12 preferenceForm"
         noValidate
         validated={validated}
         onSubmit={handlePreferenceForm}
       >
-        {/* show alert if server response is bad */}
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}

@@ -4,6 +4,7 @@ import { QUERY_BIO } from "../../utils/queries";
 import UploadFile from "../../components/inputTest";
 import auth from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
+import SignupPage from "../SignupPage";
 
 const UploadPicturePage = () => {
   const { loading, data } = useQuery(QUERY_BIO);
@@ -12,6 +13,7 @@ const UploadPicturePage = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     return (
       <div className="imgUpload">

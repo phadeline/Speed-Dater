@@ -44,7 +44,6 @@ const UploadFile = () => {
           required
           accept="image/png, image/gif, image/jpeg"
         />
-        {/* <input type="file" required onChange={onChange}/> */}
         <Button type="submit" onClick={handleInputSubmit}>
           Submit
         </Button>

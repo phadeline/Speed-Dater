@@ -5,16 +5,9 @@ import "../../styles/bioform.css";
 import { useMutation } from "@apollo/client";
 import { UPDATE_PREFERENCE } from "../../utils/mutations";
 
-
-
-
 const EditPreferenceForm = ({ myPreference }) => {
-
-    
-
   // set initial form state
   const [userFormData, setUserFormData] = useState({
-    
     ageMin: myPreference.ageMin,
     ageMax: myPreference.ageMax,
     sexOrientation: myPreference.sexOrientation,
@@ -25,7 +18,6 @@ const EditPreferenceForm = ({ myPreference }) => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
 
   const [updatePreference, { error }] = useMutation(UPDATE_PREFERENCE);
 
@@ -54,14 +46,13 @@ const EditPreferenceForm = ({ myPreference }) => {
 
     try {
       const { data } = await updatePreference({
-          variables: {
-            ageMin: parseInt(userFormData.ageMin),
-            ageMax: parseInt(userFormData.ageMax),
-            sexOrientation: userFormData.sexOrientation,
-            gender: userFormData.gender,
-            location: userFormData.location,
-          }
-        
+        variables: {
+          ageMin: parseInt(userFormData.ageMin),
+          ageMax: parseInt(userFormData.ageMax),
+          sexOrientation: userFormData.sexOrientation,
+          gender: userFormData.gender,
+          location: userFormData.location,
+        },
       });
       console.log(data);
     } catch (err) {
@@ -69,21 +60,22 @@ const EditPreferenceForm = ({ myPreference }) => {
     }
 
     setUserFormData({
-        ageMin: "",
-        ageMax: "",
-        sexOrientation: "",
-        gender: "",
-        location: "",
-        
+      ageMin: "",
+      ageMax: "",
+      sexOrientation: "",
+      gender: "",
+      location: "",
     });
   };
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}
-      className="col-lg-6 col-md-6 col-sm-12 bioForm">
-        {/* show alert if server response is bad */}
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleFormSubmit}
+        className="col-lg-6 col-md-6 col-sm-12 bioForm"
+      >
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
@@ -92,26 +84,28 @@ const EditPreferenceForm = ({ myPreference }) => {
         >
           Something went wrong with your signup!
         </Alert>
-        
+
         <Form.Group className="bioGroup">
-          <Form.Label className="bioText" htmlFor="ageMin">Min Age </Form.Label>
-          
+          <Form.Label className="bioText" htmlFor="ageMin">
+            Min Age{" "}
+          </Form.Label>
+
           <Form.Control
             type="text"
             name="ageMin"
             onChange={handleInputChange}
             value={userFormData.ageMin}
             required
-            
           />
           <Form.Control.Feedback type="invalid">
             Minimum age preference is required!
           </Form.Control.Feedback>
-          
         </Form.Group>
-       
+
         <Form.Group className="bioGroup">
-          <Form.Label className="bioText" htmlFor="ageMax">Max Age</Form.Label>
+          <Form.Label className="bioText" htmlFor="ageMax">
+            Max Age
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Maximum preferred age"
@@ -126,7 +120,9 @@ const EditPreferenceForm = ({ myPreference }) => {
         </Form.Group>
 
         <Form.Group className="bioGroup">
-          <Form.Label className="bitText" htmlFor="sexOrientation">Sexual Orientation</Form.Label>
+          <Form.Label className="bitText" htmlFor="sexOrientation">
+            Sexual Orientation
+          </Form.Label>
           <Form.Control
             type="text"
             name="sexOrientation"
@@ -140,7 +136,9 @@ const EditPreferenceForm = ({ myPreference }) => {
         </Form.Group>
 
         <Form.Group className="bioGroup">
-          <Form.Label className="bioText" htmlFor="gender">gender</Form.Label>
+          <Form.Label className="bioText" htmlFor="gender">
+            gender
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your gender"
@@ -155,7 +153,9 @@ const EditPreferenceForm = ({ myPreference }) => {
         </Form.Group>
 
         <Form.Group className="bioGroup">
-          <Form.Label className="bioText" htmlFor="location">location</Form.Label>
+          <Form.Label className="bioText" htmlFor="location">
+            location
+          </Form.Label>
           <Form.Control
             type="text"
             placeholder="Your city"
@@ -165,11 +165,9 @@ const EditPreferenceForm = ({ myPreference }) => {
             required
           />
           <Form.Control.Feedback type="invalid">
-             Please enter your preferred match's location.
+            Please enter your preferred match's location.
           </Form.Control.Feedback>
         </Form.Group>
-
-
 
         <Button
           disabled={
@@ -178,10 +176,9 @@ const EditPreferenceForm = ({ myPreference }) => {
               userFormData.ageMax &&
               userFormData.sexOrientation &&
               userFormData.gender &&
-              userFormData.location 
+              userFormData.location
             )
-            
-            }
+          }
           type="submit"
           variant="success"
         >
