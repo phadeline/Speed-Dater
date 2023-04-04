@@ -1,6 +1,10 @@
+//imports schema and model 
+//used to build data structure
 const { Schema, model } = require("mongoose");
+//imports bcrypt to protect user passwords
 const bcrypt = require("bcrypt");
 
+//creates user schema
 const userSchema = new Schema(
   {
     username: {
@@ -54,8 +58,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-
+//sets user schema to user model
 const User = model("User", userSchema);
 
+//exports user model
 module.exports = User;

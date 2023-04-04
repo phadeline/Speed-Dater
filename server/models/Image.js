@@ -1,5 +1,8 @@
+//imports schema and model 
+//used to build data structure
 const { Schema, model } = require("mongoose");
 
+//creates image schema 
 var imageSchema = new Schema({
   _id: {
     type: Schema.Types.ObjectId,
@@ -16,6 +19,8 @@ var imageSchema = new Schema({
   },
 });
 
+//sets the image schema to an image model
 const Image = model("Image", imageSchema);
 
+//exports image model
 module.exports = Image;
