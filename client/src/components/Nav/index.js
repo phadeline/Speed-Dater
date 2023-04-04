@@ -10,7 +10,6 @@ function Navigation() {
   const navigate = useNavigate();
   function userLogout() {
     auth.logout();
-    navigate("/login");
   }
   //returns navbar
   return (
@@ -68,7 +67,7 @@ function Navigation() {
               </li>
               {auth.loggedIn() ? (
                 <li className="nav-item">
-                  <Link className="nav-link" onClick={userLogout}>
+                  <Link className="nav-link" onClick={userLogout} to="/login">
                     Logout
                   </Link>
                 </li>
