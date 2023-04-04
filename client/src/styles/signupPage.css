@@ -14,7 +14,6 @@
 .imageContainer {
   background-color: red;
   max-width: 100%;
-  /* max-height: auto; */
   box-shadow: 0 10px 10px 5px rgba(253, 166, 166, 0.708);
   transition: 0.3s;
 }
