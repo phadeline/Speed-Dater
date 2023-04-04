@@ -49,7 +49,7 @@ function App() {
         <>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" component={<SignupForm />} />
+            <Route path="/login" element={<SignupForm />} />
             <Route path="/test" element={<UploadPicturePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat" element={<Chat />} />
