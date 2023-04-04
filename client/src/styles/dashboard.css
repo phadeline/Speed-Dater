@@ -146,7 +146,7 @@ h3{
   
   #connectionList {
     display: flex;
-    width: 18%;
+    width: 8vw;
     height: 60vh;
     border-left: solid lightgrey 1px;
     flex-direction: column;
