@@ -5,6 +5,7 @@ import UploadFile from "../inputTest";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_PREFERENCE } from "../../utils/mutations";
+import Dashboard from "../../pages/Dashboard";
 // import Auth from "../../utils/auth";
 
 const InitPreferenceForm = () => {
@@ -71,6 +72,7 @@ const InitPreferenceForm = () => {
       location: "",
     });
     navigate("/dashboard");
+    return <Dashboard />;
   };
 
   return (
