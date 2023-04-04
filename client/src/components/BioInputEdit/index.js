@@ -65,7 +65,6 @@ const EditBioForm = ({ myBio }) => {
         
       });
       console.log(data);
-    //   Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }

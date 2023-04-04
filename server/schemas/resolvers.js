@@ -104,8 +104,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-  
-
     addPreference: async (
       _parent,
       { ageMin, ageMax, sexOrientation, gender, location },
@@ -124,7 +122,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-
 
     addConnection: async (_parent, { userId }, context) => {
       if (context.user) {

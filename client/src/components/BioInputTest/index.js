@@ -5,7 +5,7 @@ import "../../styles/bioform.css";
 
 import { useMutation } from "@apollo/client";
 import { ADD_BIO } from "../../utils/mutations";
-// import Auth from "../../utils/auth";
+
 
 const InitBioForm = () => {
   // set initial form state
@@ -57,7 +57,7 @@ const InitBioForm = () => {
         },
       });
       console.log(data);
-      //   Auth.login(data.addUser.token);
+    
     } catch (err) {
       console.error(err);
     }
