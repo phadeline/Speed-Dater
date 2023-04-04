@@ -73,14 +73,12 @@ const InitBioForm = () => {
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
       <Form
         noValidate
         validated={validated}
         onSubmit={handleFormSubmit}
         className="col-lg-6 col-md-6 col-sm-12 bioForm"
       >
-        {/* show alert if server response is bad */}
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
