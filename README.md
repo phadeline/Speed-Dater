@@ -16,15 +16,3 @@ SpeedDater is used to bring you closer to people that you typically might not ha
 ![](/client/src/image/preferences.png)
 
 
-# Technologies Used
-* MongoDB
-* React
-* Node.js
-* Apollo
-* Express
-* CSS/Bootstrap
-* Javasript
-
-# Links
-Deployed URL - 
-
