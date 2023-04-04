@@ -2,10 +2,6 @@
   background-color: rgb(228, 200, 224);
 }
 
-/* background-color: rgb(196, 151, 190); */
-
-/* rgba(255, 192, 203, 0.709) */
-
 h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -13,11 +9,9 @@ h3{
 
   #dashwelcome {
     width: 100%;
-    /* margin-left: 20px; */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(158, 126, 142);
     color: rgb(247, 248, 206);
-    /* color: rgb(248, 247, 248); */
     text-indent: 20px;
     font-size: 32px;
     
@@ -53,7 +47,6 @@ h3{
   }
 
   #second{
-    /* align-items: center; */
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -86,11 +79,8 @@ h3{
     display: flex;
     height: 280px;
     width: 190px;
-    /* border: solid lightgrey 1px; */
     border-radius: 50%;
-    /* margin-bottom: 5px; */
     align-self: center;
-    /* justify-self: flex-start; */
   }
   
   #usersPicture img{
@@ -103,7 +93,6 @@ h3{
     border: 0;
     text-align: center;
     font-size: 13px;
-    /* color: darkgrey; */
     font-style: italic;
   }
   
@@ -190,14 +179,6 @@ h3{
     max-height: 4vh;
     font-size: 15px;
   }
-  
-  /* #profileBox {
-    display: flex;
-    flex-direction: column;
-    width: 17vw;
-    height: 30vh;
-    object-fit: cover;
-  } */
   
   .imgUpload{
     display: flex;
