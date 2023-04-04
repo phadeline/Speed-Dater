@@ -58,7 +58,7 @@ const SignupForm = () => {
       email: "",
       password: "",
     });
-    window.location.assign("/newbio");
+    window.location.href = "/newbio";
   };
 
   return (
