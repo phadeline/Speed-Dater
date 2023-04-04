@@ -1,8 +1,6 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import LandingPage from "./pages/LandingPage";
-// import './App.css';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignupForm from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard/index.js";
@@ -16,12 +14,10 @@ import UploadPicturePage from "./pages/PictureForm/index.js";
 import Nav from "./components/Nav/index.js";
 import ProfileList from "./pages/ProfileList/index.js";
 
-import auth from "./utils/auth.js";
 import { setContext } from "@apollo/client/link/context";
-import { InvalidTokenError } from "jwt-decode";
 import EditPreference from "./pages/EditPreferenceForm/index.js";
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
+// Construct request middleware that will attach the JWT token to every request as an `authorization` header.
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem("id_token");
@@ -40,7 +36,7 @@ const httpLink = createUploadLink({
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API.
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -48,9 +44,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Nav />
       <Router>
         <>
+          <Nav />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<SignupForm />} />
@@ -59,8 +55,8 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/profiles" element={<ProfileList />} />
-            <Route path="/test1" element={<InitBioPage />} />
-            <Route path="/test2" element={<InitPreferencePage />} />
+            <Route path="/newbio" element={<InitBioPage />} />
+            <Route path="/newpref" element={<InitPreferencePage />} />
             <Route path="/editbio" element={<EditBio />} />
             <Route path="/editpreference" element={<EditPreference />} />
             <Route

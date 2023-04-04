@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/bioform.css";
 
-
 import { useMutation } from "@apollo/client";
 import { ADD_BIO } from "../../utils/mutations";
-
 
 const InitBioForm = () => {
   // set initial form state
@@ -57,7 +55,6 @@ const InitBioForm = () => {
         },
       });
       console.log(data);
-    
     } catch (err) {
       console.error(err);
     }
@@ -71,7 +68,7 @@ const InitBioForm = () => {
       pictures: "",
     });
 
-    window.location.assign("/test2");
+    window.location.assign("/newpref");
   };
 
   return (
@@ -177,7 +174,6 @@ const InitBioForm = () => {
             Email is required!
           </Form.Control.Feedback>
         </Form.Group>
-        
 
         <Button
           disabled={
