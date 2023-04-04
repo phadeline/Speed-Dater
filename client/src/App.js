@@ -50,22 +50,21 @@ function App() {
       <Router>
         <>
           <Routes>
-            <Route path="/" element={<LandingPage />}>
-              <Route path="login" element={<SignupForm />} />
-              <Route path="test" element={<UploadPicturePage />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="chat" element={<Chat />} />
-              <Route path="profile/:id" element={<Profile />} />
-              <Route path="profiles" element={<ProfileList />} />
-              <Route path="newbio" element={<InitBioPage />} />
-              <Route path="newpref" element={<InitPreferencePage />} />
-              <Route path="editbio" element={<EditBio />} />
-              <Route path="editpreference" element={<EditPreference />} />
-              <Route
-                path="*"
-                element={<h1 className="display-2">Wrong page!</h1>}
-              />
-            </Route>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<SignupForm />} />
+            <Route path="/test" element={<UploadPicturePage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/profiles" element={<ProfileList />} />
+            <Route path="/newbio" element={<InitBioPage />} />
+            <Route path="/newpref" element={<InitPreferencePage />} />
+            <Route path="/editbio" element={<EditBio />} />
+            <Route path="/editpreference" element={<EditPreference />} />
+            <Route
+              path="*"
+              element={<h1 className="display-2">Wrong page!</h1>}
+            />
           </Routes>
         </>
       </Router>
