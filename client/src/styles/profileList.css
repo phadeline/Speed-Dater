@@ -4,6 +4,10 @@
   flex: 1 1 auto;
       
 }
+body{
+  display: flex;
+  flex-direction: column;
+}
 
 #banner {
     width: 100%;
