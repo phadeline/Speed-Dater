@@ -9,7 +9,7 @@ function Navigation() {
   function userLogout() {
     auth.logout();
   }
-
+  //returns navbar
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid ">
