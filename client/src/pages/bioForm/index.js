@@ -4,7 +4,7 @@ import auth from "../../utils/auth";
 
 const InitBioPage = () => {
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    window.location.href = "/login";
   } else {
     return (
       <div>

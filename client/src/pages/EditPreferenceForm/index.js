@@ -6,25 +6,23 @@ import auth from "../../utils/auth";
 import "../../styles/bioform.css";
 
 const EditPreference = () => {
-  const { loading: preferenceLoading, data: preferenceData } = useQuery(QUERY_PREFERENCE);
+  const { loading: preferenceLoading, data: preferenceData } =
+    useQuery(QUERY_PREFERENCE);
 
   const myPreference = preferenceData?.preference || {};
 
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    window.location.href = "/login";
   } else {
     if (preferenceLoading) {
       return <div> Loading...</div>;
     }
     return (
       <div>
-      
-
         <h1 className="editHeading"> Edit Your Preferences</h1>
-       
+
         <div>
           <EditPreferenceForm myPreference={myPreference} />
-        
         </div>
       </div>
     );
