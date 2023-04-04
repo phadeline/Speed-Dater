@@ -38,7 +38,7 @@ const DashboardComponent = ({ myUser, myBio, myPreference }) => {
               {myUser.username}
             </Card.Header>
 
-            {myBio.pictures > 0 && (
+            {myBio.pictures && (
               <div id="usersPicture">
                 <img
                   id="propic"
