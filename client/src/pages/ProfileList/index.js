@@ -5,6 +5,7 @@ import { ALL_BIOS } from "../../utils/queries";
 import AllProfiles from "../../components/AllProfiles";
 import "../../styles/profileList.css";
 import { useNavigate } from "react-router-dom";
+import SignupPage from "../SignupPage";
 
 const ProfileList = () => {
   const { loading: bioLoading, data: bioData } = useQuery(ALL_BIOS);
@@ -13,6 +14,7 @@ const ProfileList = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     if (bioLoading) {
       return <h1>Loading...</h1>;

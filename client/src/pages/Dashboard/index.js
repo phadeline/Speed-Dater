@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { QUERY_USER } from "../../utils/queries";
 import { QUERY_BIO } from "../../utils/queries";
 import { QUERY_PREFERENCE } from "../../utils/queries";
+import SignupPage from "../SignupPage";
 
 const Dashboard = () => {
   const { loading: bioLoading, data: bioData } = useQuery(QUERY_BIO);
@@ -21,6 +22,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   if (!auth.loggedIn()) {
     navigate("/login");
+    return <SignupPage />;
   } else {
     if (!myBio || !myPreference || !myUser) {
       return <h1>Please Update Your Bio and Preferences</h1>;
