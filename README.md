@@ -9,3 +9,22 @@ AS AN user, I want to create an account based off my interests and preferences. 
 # Usage
 SpeedDater is used to bring you closer to people that you typically might not have met in the real world.  It is a great way to stay connected with others and build relationships based off of your likes and interests.
 
+# Screenshots
+![](/client/src/image/landing.png)
+![](/client/src/image/login.png)
+![](/client/src/image/bio.png)
+![](/client/src/image/preferences.png)
+
+
+# Technologies Used
+* MongoDB
+* React
+* Node.js
+* Apollo
+* Express
+* CSS/Bootstrap
+* Javasript
+
+# Links
+Deployed URL - 
+
