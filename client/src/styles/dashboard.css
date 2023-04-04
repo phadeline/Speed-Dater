@@ -78,7 +78,6 @@ h3{
     justify-content: center;
     align-items: center;
     justify-items: center;
-    width: 25vw !important;
   }
 
 
@@ -157,7 +156,7 @@ h3{
     align-content: center;
     text-align: center;
     justify-content: center;
-    max-width: 25vw;
+    max-width: 20vw;
   }
   
   #connectionList {
@@ -191,7 +190,6 @@ h3{
   #dashFriends {
 
     text-align: center;
-  
     width: 14vw;
     margin-left: 1vw;
     flex-direction: column;
