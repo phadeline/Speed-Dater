@@ -49,7 +49,7 @@ const InitBioForm = () => {
     try {
       const { data } = await addBio({
         variables: {
-          interests: userFormData.interests,
+          interests: [userFormData.interests],
           bio: userFormData.bio,
           age: parseInt(userFormData.age),
           gender: userFormData.gender,
