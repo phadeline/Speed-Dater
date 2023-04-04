@@ -1,10 +1,12 @@
 import React from "react";
 import auth from "../../utils/auth";
 import InitPreferenceForm from "../../components/PreferenceInputTest";
+import { useNavigate } from "react-router-dom";
 
 const InitPreferencePage = () => {
+  const navigate = useNavigate();
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    navigate("/login");
   } else {
     return (
       <div>

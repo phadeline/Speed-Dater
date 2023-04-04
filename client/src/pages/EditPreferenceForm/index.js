@@ -4,6 +4,7 @@ import EditPreferenceForm from "../../components/editPreference";
 import { QUERY_PREFERENCE } from "../../utils/queries";
 import auth from "../../utils/auth";
 import "../../styles/bioform.css";
+import { useNavigate } from "react-router-dom";
 
 const EditPreference = () => {
   const { loading: preferenceLoading, data: preferenceData } =
@@ -11,8 +12,9 @@ const EditPreference = () => {
 
   const myPreference = preferenceData?.preference || {};
 
+  const navigate = useNavigate();
   if (!auth.loggedIn()) {
-    window.location.href = "/login";
+    navigate("/login");
   } else {
     if (preferenceLoading) {
       return <div> Loading...</div>;

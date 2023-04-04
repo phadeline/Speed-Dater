@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "../../styles/preferenceForm.css";
 import UploadFile from "../inputTest";
-
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_PREFERENCE } from "../../utils/mutations";
 // import Auth from "../../utils/auth";
 
 const InitPreferenceForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     ageMin: "",
@@ -69,7 +70,7 @@ const InitPreferenceForm = () => {
       gender: "",
       location: "",
     });
-    window.location.assign("/dashboard");
+    navigate("/dashboard");
   };
 
   return (

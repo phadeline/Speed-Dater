@@ -4,13 +4,15 @@ import { useQuery } from "@apollo/client";
 import { ALL_BIOS } from "../../utils/queries";
 import AllProfiles from "../../components/AllProfiles";
 import "../../styles/profileList.css";
+import { useNavigate } from "react-router-dom";
 
 const ProfileList = () => {
   const { loading: bioLoading, data: bioData } = useQuery(ALL_BIOS);
   const bios = bioData?.bios || [];
 
+  const navigate = useNavigate();
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    navigate("/login");
   } else {
     if (bioLoading) {
       return <h1>Loading...</h1>;

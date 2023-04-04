@@ -2,8 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import MyProfile from "../../components/Profile";
 import { useParams } from "react-router-dom";
-import Nav from "../../components/Nav";
 import auth from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 import {
   CONNECTION_BIO,
@@ -30,8 +30,9 @@ const Profile = () => {
   const myUser = userData?.connection || {};
   const myPreference = preferenceData?.connectionPreference || {};
 
+  const navigate = useNavigate();
   if (!auth.loggedIn()) {
-    window.location.assign("/login");
+    navigate("/login");
   } else {
     if (bioLoading || preferenceLoading || userLoading) {
       return <div> Loading...</div>;
