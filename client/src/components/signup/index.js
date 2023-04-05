@@ -55,12 +55,6 @@ const SignupForm = () => {
     } catch (err) {
       console.error(err);
     }
-
-    setUserFormData({
-      username: "",
-      email: "",
-      password: "",
-    });
     navigate("/newbio");
     return <InitBioPage />;
   };
