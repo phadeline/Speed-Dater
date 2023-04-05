@@ -38,7 +38,7 @@ export const ADD_BIO = gql`
 
 export const UPDATE_BIO = gql`
   mutation updateBio(
-    $interests: String!
+    $interests: [String]!
     $bio: String!
     $age: Int!
     $gender: String!
@@ -59,8 +59,6 @@ export const UPDATE_BIO = gql`
     }
   }
 `;
-
-
 
 export const ADD_PREFERENCE = gql`
   mutation addPreference(
@@ -109,7 +107,6 @@ export const UPDATE_PREFERENCE = gql`
   }
 `;
 
-
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -121,7 +118,6 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-
 
 export const UPLOAD_FILE = gql`
   mutation uploadFile($file: Upload!) {
@@ -147,7 +143,6 @@ export const ADD_CONNECTION = gql`
 export const ACCEPT_CONNECTION = gql`
   mutation acceptConnection($userId: ID!) {
     acceptConnection(userId: $userId) {
-
       connectRequest {
         _id
       }

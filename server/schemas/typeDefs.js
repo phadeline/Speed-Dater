@@ -1,5 +1,7 @@
+//imports gql from apollo
 const { gql } = require("apollo-server-express");
 
+//creates object of all typedefs for each model, queries, and mutations
 const typeDefs = gql`
   type User {
     _id: ID!
@@ -71,7 +73,7 @@ const typeDefs = gql`
     deleteConnection(userId: ID!): User
 
     addBio(
-      interests: String!
+      interests: [String]!
       bio: String!
       age: Int!
       gender: String!
@@ -80,7 +82,7 @@ const typeDefs = gql`
     ): Bio
 
     updateBio(
-      interests: String
+      interests: [String]
       bio: String
       location: String
       age: Int
