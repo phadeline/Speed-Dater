@@ -1,5 +1,8 @@
+//imports schema and model 
+//used to build data structure
 const { Schema, model } = require("mongoose");
 
+//creates bio schema 
 const bioSchema = new Schema({
   interests: [
     {
@@ -23,6 +26,8 @@ const bioSchema = new Schema({
   pictures: [{ type: String }],
 });
 
+//sets the bio schema to a bio model
 const Bio = model("Bio", bioSchema);
 
+//exports the bio model
 module.exports = Bio;
