@@ -1,6 +1,7 @@
 .dashpage{
   background-color: rgba(190, 195, 196, 0.473);
   /* max-width:max-content; */
+
 }
 
 
@@ -68,10 +69,12 @@ h3{
 
 
   #third{
+   
     align-content: center;
     justify-content: center;
     align-items: center;
     justify-items: center;
+
   }
 
 
@@ -146,7 +149,12 @@ h3{
     align-content: center;
     text-align: center;
     justify-content: center;
+
+    /* align-items: center; */
+    
+
     max-width: 20vw;
+
   }
   
   #connectionList {
@@ -164,7 +172,7 @@ h3{
     display: flex;
     text-indent: 5px;
     margin-left:10px;
-    width: 300px;
+    /* width: 300px; */
     text-align: center;
   }
 
